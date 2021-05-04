@@ -8,7 +8,16 @@
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
+  <header>
+  <h1>Port-Share</h1>
+  <nav>
+  <ul>
+    <li><%= link_to  "新規登録",root_path %></li>
+    <li><%= link_to  "ログイン", root_path %></li>
+  </ul>
+  </nav>
+  </header>
+  
   <body>
     <%= yield %>
   </body>

@@ -1,2 +1,48 @@
 $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
 @import '~bootstrap/scss/bootstrap';
+
+
+/*========reset css=============*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+	font-family: "Helvetica Neue",
+	  Arial,
+	  "Hiragino Kaku Gothic ProN",
+	  "Hiragino Sans",
+	  Meiryo,
+	  sans-serif;
+  }
+h1 {
+  margin-left: 2rem;
+}
+i {
+  margin-right: 0.25rem;
+}
+a {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+}
+li {
+  list-style: none;
+}
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  appearance: none;
+}
+
+/*========共通=============*/
+header{
+	nav{
+		a{
+			color: black;
+		}
+	}
+}
