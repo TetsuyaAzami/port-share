@@ -1,27 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>PortShareWebpacker</title>
+    <title>Port-Share</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <header>
-  <h1>Port-Share</h1>
-  <nav>
-   <ul>
-
-    <button class="btn"><li><%= link_to  "新規登録",root_path %></li></button>
-
-    <button class="btn"><li><%= link_to  "ログイン", root_path %></li></button>
-
-   </ul>
-  </nav>
-  </header>
+  <%= render  "layouts/header" %>
   
   <body>
     <%= yield %>
   </body>
+  <%= render  "layouts/footer" %>
 </html>
