@@ -1,50 +1,75 @@
 @import "../_variables.scss";
 
 main {
-	width: 100%;
-	height:100%;
-	margin-bottom: 3rem;
-	& .header-nav{
-		width: 100%;
-		height: calc(100vh - 5rem);
-		background: $sub-color;
-
-	}
-  h2 {
-    position: relative;
-    display: inline-block;
-    margin-bottom: 3rem;
-    text-align: center;
-    color: $main-color;
-    &::after {
-      content: "";
-      display: block;
-      width: 100%;
-      height: 3px;
-      background-color: $main-color;
-      border-radius: 1.5px;
-      position: absolute;
-      bottom: -0.5rem;
-      left: 0;
-    }
-  }
-  .description {
-    width: 90%;
-	height: auto;
-    margin: 3rem auto;
-    text-align: center;
-  }
-  & .contents {
-    width: 90%;
-	height: auto;
-	margin: 0 auto;
-background:$sub-color;
-    display: flex;
-    justify-content: space-around;
-	& .content{
-		width: calc((100% / 3)- 30px);
-		height: 100px;
-	}
+  width: 100%;
+  height: 100%;
+  margin-bottom: 3rem;
+}
+.header-bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: calc(100vh - 5rem);
+  background: $sub-color;
+}
+.header-inner {
+  position: relative;
+  display: inline-block;
+  color: $back-color;
+  & ::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    content: "";
+    background: $main-color;
+    display: block;
+    width: 100%;
+    height: 4px;
   }
 
+  & .big-character {
+    font-size: 3rem;
+    margin: 1rem;
+  }
+  & .small-character {
+    font-size: 2rem;
+  }
+}
+.description {
+  width: 90%;
+  height: auto;
+  margin: 3rem auto;
+  text-align: center;
+}
+
+.description-title {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 3rem;
+  text-align: center;
+  color: $main-color;
+  &::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: $main-color;
+    border-radius: 1.5px;
+    position: absolute;
+    bottom: -0.5rem;
+    left: 0;
+  }
+}
+.contents {
+  width: 90%;
+  height: auto;
+  margin: 0 auto;
+  background: $sub-color;
+  display: flex;
+  justify-content: space-around;
+  & .content {
+    width: calc((100% / 3)- 30px);
+    height: 100px;
+  }
 }
