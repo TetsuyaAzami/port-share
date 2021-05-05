@@ -1,5 +1,12 @@
-process.env.NODE_ENV = process.env.NODE_ENV || 'development'
+process.env.NODE_ENV = process.env.NODE_ENV || "development";
+const environment = require("./environment");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
-const environment = require('./environment')
+const webpackConfig = {
+  plugins: [
+    new CleanWebpackPlugin(),
+  ],
+};
 
-module.exports = environment.toWebpackConfig()
+module.exports = webpackConfig;
+module.exports = environment.toWebpackConfig();
