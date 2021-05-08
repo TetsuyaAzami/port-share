@@ -3,14 +3,13 @@
 main {
   width: 100%;
   height: 100%;
-  margin-bottom: 3rem;
 }
 .header-bottom {
+  padding-top: 65px;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  height: calc(100vh - 5rem);
+  height:100vh;
   background: $sub-color;
 }
 .header-inner {
@@ -21,11 +20,13 @@ main {
     position: absolute;
     bottom: 0;
     left: 0;
+    right: 0;
     content: "";
     background: $main-color;
     display: block;
-    width: 100%;
+    width: 90%;
     height: 4px;
+    margin: 0 auto;
   }
 
   & .big-character {
@@ -39,15 +40,17 @@ main {
 .description {
   width: 90%;
   height: auto;
-  margin: 3rem auto;
+  margin: 3rem auto 4rem;
   text-align: center;
+  p {
+    line-height: 2;
+  }
 }
 
 .description-title {
   position: relative;
   display: inline-block;
   margin-bottom: 3rem;
-  text-align: center;
   color: $main-color;
   &::after {
     content: "";
@@ -61,15 +64,19 @@ main {
     left: 0;
   }
 }
-.contents {
-  width: 90%;
-  height: auto;
-  margin: 0 auto;
-  background: $sub-color;
-  display: flex;
-  justify-content: space-around;
-  & .content {
-    width: calc((100% / 3)- 30px);
-    height: 100px;
-  }
+.cards {
+  margin: 0 auto 5rem;
+}
+.card{
+	margin: .5rem;
+
+	img{
+		margin: 0 auto;
+	}
+	& .card-text{
+		margin: 0 auto;
+	}
+	& .card-title {
+		color: $main-color;
+}
 }

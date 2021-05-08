@@ -1,13 +1,14 @@
 
-<header>
-  <h1>Port-Share</h1>
-  <nav>
-   <ul>
+<header class="navbar navbar-expand d-flex fixed-top bg-white">
+<div class="container">
+<h1 class="navbar-brand">Port-Share</h1>
 
-    <button class="btn"><li><%= link_to  "新規登録",root_path %></li></button>
+<nav>
+<ul class="nav navbar-nav">
+<li>  <%= link_to  "新規登録", root_path %></li>
+<li>  <%= link_to  "ログイン", root_path %></li>
+    </ul>
+</nav>
+</div>
 
-    <button class="btn"><li><%= link_to  "ログイン", root_path %></li></button>
-
-   </ul>
-  </nav>
-  </header>
+</header>
