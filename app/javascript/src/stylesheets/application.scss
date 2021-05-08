@@ -31,6 +31,13 @@ button {
 
 /*========共通=============*/
 
+html{
+  position: relative;
+  min-height: 100vh;
+}
+body{
+  padding-top: 65px;
+}
 header {
   border-bottom: solid 1px $text-gray;
   h1 {
@@ -44,11 +51,32 @@ header {
   }
 }
 
+
 footer {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
   border-top: solid 1px $text-gray;
   height: auto;
   p {
     line-height: 5;
     margin-bottom: 0;
   }
+}
+
+
+
+/*=== Flash ===*/
+.notice {
+   background: #28a745;
+   color: #fff;
+   margin:0;
+   text-align: center;
+}
+.alert {
+   background:#dc3545;
+   color: #fff;
+   margin: 0;
+   border-radius: 0;
+   text-align: center;
 }
