@@ -4,8 +4,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.6.3'
 
 gem 'devise'
-gem 'devise-i1 8n'
-gem 'devise-i1 8n-views'
+gem 'devise-i18n'
+gem 'devise-i18n-views'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.6'
 # Use mysql as the database for Active Record
