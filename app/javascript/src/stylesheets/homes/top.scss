@@ -5,11 +5,11 @@ main {
   height: 100%;
 }
 .header-bottom {
-  padding-top: 65px;
+  padding-top: 57px;
   display: flex;
   justify-content: center;
   align-items: center;
-  height:100vh;
+  height:calc(100vh - 57px);
   background: $sub-color;
 }
 .header-inner {
