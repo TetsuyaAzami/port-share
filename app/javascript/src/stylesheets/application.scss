@@ -36,12 +36,13 @@ html{
   min-height: 100vh;
 }
 body{
-  padding-top: 65px;
+  padding-top: 57px;
 }
 header {
   border-bottom: solid 1px $text-gray;
   h1 {
     color: $main-color;
+    margin: 0;
   }
   li {
     margin-left: 3rem;
@@ -79,4 +80,15 @@ footer {
    margin: 0;
    border-radius: 0;
    text-align: center;
+}
+
+/*=== Login,Logout ===*/
+.login,.signup{
+color: $main-color;
+}
+.actions input{
+  background: $sub-color;
+  &:active{
+    background: $main-color;
+  }
 }
