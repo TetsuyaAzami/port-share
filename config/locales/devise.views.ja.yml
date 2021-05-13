@@ -3,12 +3,25 @@ ja:
     attributes:
       user:
         current_password: "現在のパスワード"
+        name: "名前"
         email: "メールアドレス"
         password: "パスワード"
         password_confirmation: "確認用パスワード"
         remember_me: "ログインを記憶"
     models:
       user: "ユーザ"
+    errors:
+      models:
+        user:
+          attributes:
+            name:
+              blank: "を入力してください。"
+            email:
+              blank: "を入力してください。"
+            password:
+              blank: "を入力してください。"
+            password_confirmation:
+              confirmation: "がパスワードと一致しません。"
   devise:
     confirmations:
       new:
