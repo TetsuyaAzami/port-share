@@ -86,6 +86,9 @@ footer {
 .login,.signup{
 color: $main-color;
 }
+.field{
+  margin:1rem 0;
+}
 .actions input{
   background: $sub-color;
   &:active{
