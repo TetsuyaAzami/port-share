@@ -31,11 +31,11 @@ button {
 
 /*========共通=============*/
 
-html{
+html {
   position: relative;
   min-height: 100vh;
 }
-body{
+body {
   padding-top: 57px;
 }
 header {
@@ -46,12 +46,11 @@ header {
   }
   li {
     margin-left: 3rem;
-    a{
+    a {
       color: $main-color;
     }
   }
 }
-
 
 footer {
   width: 100%;
@@ -65,33 +64,32 @@ footer {
   }
 }
 
-
-
 /*=== Flash ===*/
 .notice {
-   background: #28a745;
-   color: #fff;
-   margin:0;
-   text-align: center;
+  background: #28a745;
+  color: #fff;
+  margin: 0;
+  text-align: center;
 }
 .alert {
-   background:#dc3545;
-   color: #fff;
-   margin: 0;
-   border-radius: 0;
-   text-align: center;
+  background: #dc3545;
+  color: #fff;
+  margin: 0;
+  border-radius: 0;
+  text-align: center;
 }
 
 /*=== Login,Logout ===*/
-.login,.signup{
-color: $main-color;
+.login,
+.signup {
+  color: $main-color;
 }
-.field{
-  margin:1rem 0;
+.field {
+  margin: 1rem 0;
 }
-.actions input{
+.actions input {
   background: $sub-color;
-  &:active{
+  &:active {
     background: $main-color;
   }
 }

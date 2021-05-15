@@ -9,7 +9,7 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  height:calc(100vh - 57px);
+  height: calc(100vh - 57px);
   background: $sub-color;
 }
 .header-inner {
@@ -67,16 +67,16 @@ main {
 .cards {
   margin: 0 auto 5rem;
 }
-.card{
-	margin: .5rem;
+.card {
+  margin: 0.5rem;
 
-	img{
-		margin: 0 auto;
-	}
-	& .card-text{
-		margin: 0 auto;
-	}
-	& .card-title {
-		color: $main-color;
-}
+  img {
+    margin: 0 auto;
+  }
+  & .card-text {
+    margin: 0 auto;
+  }
+  & .card-title {
+    color: $main-color;
+  }
 }

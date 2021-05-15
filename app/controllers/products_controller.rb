@@ -12,6 +12,7 @@ class ProductsController < ApplicationController
 	else
 		render :new
 	end
+end
 	private
 	def product_params
 	params.require(:product).permit(:name,:language,:description,:price)
