@@ -1,0 +1,15 @@
+<%= stylesheet_pack_tag "products/index"%>
+<main>
+	<h3 class="page-title text-center my-5">商品一覧</h3>
+	<% @products.each do |product|%>
+	<div class="card" style="width: 18rem;">
+		<%= image_pack_tag 'product.image', class:"product-image"%>
+
+		<div class="card-body">
+			<h5 class="card-title"></h5>
+			<p class="card-text"><%= @product.description%> </p>
+			<%= link_to  "この作品を見る", product_path, class:"product" %>
+		</div>
+	</div>
+	<% end %>
+</main>
