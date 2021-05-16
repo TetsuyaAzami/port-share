@@ -8,6 +8,11 @@ ja:
         password: "パスワード"
         password_confirmation: "確認用パスワード"
         remember_me: "ログインを記憶"
+      product:
+        name: "作品名"
+        image: "イメージ画像"
+        language: "使用言語"
+
     models:
       user: "ユーザ"
     errors:
@@ -18,10 +23,19 @@ ja:
               blank: "を入力してください。"
             email:
               blank: "を入力してください。"
+              taken: "%はすでに使用されています。"
             password:
               blank: "を入力してください。"
             password_confirmation:
               confirmation: "がパスワードと一致しません。"
+        product:
+          attributes:
+            name:
+              blank: "を入力してください。"
+            language:
+              blank: "を選択してください。"
+            image:
+              blank: "を登録してください。"
   devise:
     confirmations:
       new:

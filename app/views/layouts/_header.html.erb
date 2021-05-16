@@ -5,8 +5,8 @@
 <nav>
 <ul class="nav navbar-nav">
 <% if current_user %>
-  <li><%= link_to  "マイページ", root_path %></li>
-  <li><%= link_to  "投稿する", root_path %></li>
+  <li><%= link_to  "商品一覧", products_path %></li>
+  <li><%= link_to  "投稿する", new_product_path %></li>
   <li><%= link_to  "ログアウト", destroy_user_session_path, method: :delete %></li>
 <% else %>
 <li>  <%= link_to  "新規登録", new_user_registration_path %></li>
