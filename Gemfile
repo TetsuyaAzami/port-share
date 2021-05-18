@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.3'
 
+gem 'carrierwave'
 gem 'devise'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
@@ -58,7 +59,7 @@ group :test do
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
   gem 'database_cleaner', '~> 1.5'
-  
+
 end
 group :production do
   gem 'pg'
