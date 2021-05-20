@@ -11,7 +11,7 @@ ja:
       product:
         name: "作品名"
         image: "イメージ画像"
-        language: "使用言語"
+        technique: "使用技術"
 
     models:
       user: "ユーザ"
@@ -32,7 +32,7 @@ ja:
           attributes:
             name:
               blank: "を入力してください。"
-            language:
+            technique:
               blank: "を選択してください。"
             image:
               blank: "を登録してください。"

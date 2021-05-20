@@ -1,0 +1,3 @@
+class Technique < ApplicationRecord
+  
+end
