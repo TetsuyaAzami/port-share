@@ -1,0 +1,15 @@
+<%= stylesheet_pack_tag "products/show"%>
+<div class="container">
+<div class="card my-5">
+      <% if @product.image.content_type%>
+      <%= image_tag @product.image.to_s, class:"product-image" %>
+      <% else %>
+      <%= image_pack_tag "Noimage.png" ,class:"product-image" %>
+      <% end %>
+      <div class="card-body text-center">
+        <h3 class="card-title"><%=@product.name%></h3>
+        <p class="card-text text-left"><%= @product.description%> </p>
+        <%= link_to  "この作品を見に行く", product_path(@product),class:"text-center" %>
+      </div>
+    </div>
+</div>
