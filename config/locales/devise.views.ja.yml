@@ -12,6 +12,7 @@ ja:
         name: "作品名"
         image: "イメージ画像"
         technique: "使用技術"
+        description: "作品の説明"
 
     models:
       user: "ユーザ"

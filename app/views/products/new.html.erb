@@ -22,7 +22,10 @@
 
 	<div class="field">
 		<%= f.label :technique %><br />
-		<%= f.text_field :technique, class:"form-control",required: true %>
+    <% @technique.each do |technique|%>
+		<%= f.check_box :technique,multiple:true %>
+    <%=technique.technique%>
+    <% end %>
 	</div>
 	<div class="field">
 		<%= f.label :image %><br />
