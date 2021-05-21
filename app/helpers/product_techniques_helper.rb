@@ -1,0 +1,2 @@
+module ProductTechniquesHelper
+end
