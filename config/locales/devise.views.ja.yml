@@ -31,6 +31,8 @@ ja:
               confirmation: "がパスワードと一致しません。"
         product:
           attributes:
+            user:
+              required: "を作成してください。"
             name:
               blank: "を入力してください。"
             technique:

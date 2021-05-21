@@ -35,7 +35,6 @@ group :development, :test do
   gem 'pry-doc'
   gem 'pry-stack_explorer'
   gem 'pry-byebug'
-  gem 'rb-readline'
 end
 
 group :development do
