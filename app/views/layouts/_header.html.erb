@@ -1,19 +1,23 @@
+<header class="navbar navbar-expand-md d-flex fixed-top bg-white">
+  <div class="container">
+    <h1 class="navbar-brand">Port-Share</h1>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <nav class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav d-flex m-0">
+        <% if current_user %>
+        <li class="nav-item"><%= link_to  "作品一覧", products_path%></li>
+        <li class="nav-item"><%= link_to  "投稿する", new_product_path%></li>
+        <li class="nav-item"><%= link_to  "ログアウト", destroy_user_session_path, method: :delete %></li>
+        <% else %>
+        <li> <%= link_to  "新規登録", new_user_registration_path %></li>
+        <li> <%= link_to  "ログイン", new_user_session_path %></li>
+        <% end %>
+      </ul>
 
-<header class="navbar navbar-expand d-flex fixed-top bg-white">
-<div class="container">
-<h1 class="navbar-brand">Port-Share</h1>
-<nav>
-<ul class="nav navbar-nav">
-<% if current_user %>
-  <li><%= link_to  "商品一覧", products_path %></li>
-  <li><%= link_to  "投稿する", new_product_path %></li>
-  <li><%= link_to  "ログアウト", destroy_user_session_path, method: :delete %></li>
-<% else %>
-<li>  <%= link_to  "新規登録", new_user_registration_path %></li>
-<li>  <%= link_to  "ログイン", new_user_session_path %></li>
-<% end %>
-    </ul>
-</nav>
-</div>
 
+    </nav>
+  </div>
 </header>

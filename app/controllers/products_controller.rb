@@ -1,5 +1,4 @@
 class ProductsController < ApplicationController
-  # before_action :technique_string,only: [:create,:update]
   def index
     @products = Product.all
   end
@@ -9,9 +8,11 @@ class ProductsController < ApplicationController
   end
   def create
     @product = Product.new(product_params)
+
     if @product.save
       redirect_to products_path, notice: '登録しました'
     else
+      @technique = Technique.all
       render :new
     end
   end
@@ -22,9 +23,6 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :description, :image, technique: [])
+    params.require(:product).permit(:name, :description, :image, :technique)
   end
-  # def technique_string
-  #   params[:product][:technique] = params[:product][:technique].join(",")
-  # end
 end

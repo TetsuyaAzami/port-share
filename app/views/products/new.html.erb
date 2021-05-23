@@ -1,47 +1,45 @@
+<%= stylesheet_pack_tag "products/new"%>
 <div class="container">
-	<h2 class="title text-center mt-5 mb-3">作品の登録</h2>
-	<% if @product.errors.any? %>
-	<div class="alert alert-warning">
-		<ul>
-			<% @product.errors.full_messages.each do |message
+  <h2 class="title text-center mt-5 mb-3">作品の登録</h2>
+  <% if @product.errors.any? %>
+  <div class="alert alert-warning">
+    <ul>
+      <% @product.errors.full_messages.each do |message
   |%>
-			<li><%=message%> </li>
-			<% end %>
-		</ul>
-	</div>
-	<% end %>
+      <li><%=message%> </li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
 
+  <%= form_with model: @product,local: true do |f| %>
 
-
-	<%= form_with model: @product,local: true do |f| %>
-
-	<div class="field">
-		<%= f.label :name %><br />
-		<%= f.text_field :name, autofocus: true, class:"form-control",required: true %>
-	</div>
-
-	<div class="field">
-		<%= f.label :technique %><br />
-    <% @technique.each do |technique|%>
-		<%= f.check_box :technique,multiple:true %>
-    <%=technique.technique%>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autofocus: true, class:"form-control",required: true %>
+  </div>
+  <div class="field">
+    <%= f.label :technique %><br />
+    <%= f.collection_check_boxes(:technique,@technique,:id,:technique,include_hidden: false) do |b|%>
+    <%= b.label {b.check_box(class: "technique") + b.text }%>
     <% end %>
-	</div>
-	<div class="field">
-		<%= f.label :image %><br />
-		<%= f.file_field :image, autofocus: true, class:"form-control" %>
-	</div>
+  </div>
+  <div class="field">
+    <%= f.label :image %><br />
+    <%= f.file_field :image, class:"form-control" %>
+    <%= f.hidden_field :image_cache %>
+  </div>
 
-	<div class="field">
-		<%= f.label :description %><br />
-		<%= f.text_area :description, class:"form-control",style: "width:100%;min-height:150px;"%>
-	</div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description, class:"form-control",style: "width:100%;min-height:150px;"%>
+  </div>
 
-	<div class="actions">
-		<%= f.submit "投稿する", class:"form-control"  %>
-	</div>
-	<% end %>
-	<div class="text-center mt-3">
-	</div>
+  <div class="actions">
+    <%= f.submit "投稿する", class:"form-control"  %>
+  </div>
+  <% end %>
+  <div class="text-center mt-3">
+  </div>
 
 </div>

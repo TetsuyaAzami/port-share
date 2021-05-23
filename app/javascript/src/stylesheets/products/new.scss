@@ -1,0 +1,11 @@
+@import "../variables";
+
+.title {
+  color: $main-color;
+}
+.technique {
+  margin-right: 4px;
+}
+.field_with_errors {
+  display: contents;
+}
