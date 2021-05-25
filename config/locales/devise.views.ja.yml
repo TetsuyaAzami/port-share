@@ -39,6 +39,9 @@ ja:
               blank: "を選択してください。"
             image:
               blank: "を登録してください。"
+  errors:
+    messages:
+      extension_whitelist_error: "に登録できるのはjpg,jpeg,gif,pngのみです。拡張子を確認してください。"
   devise:
     confirmations:
       new:

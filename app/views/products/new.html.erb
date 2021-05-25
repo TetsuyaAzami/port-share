@@ -26,8 +26,10 @@
   </div>
   <div class="field">
     <%= f.label :image %><br />
+    <%= image_tag(@product.image_url) if @product.image?%>
     <%= f.file_field :image, class:"form-control" %>
     <%= f.hidden_field :image_cache %>
+    <label>
   </div>
 
   <div class="field">

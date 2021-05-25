@@ -8,7 +8,6 @@ class ProductsController < ApplicationController
   end
   def create
     @product = Product.new(product_params)
-
     if @product.save
       redirect_to products_path, notice: '登録しました'
     else
@@ -17,12 +16,21 @@ class ProductsController < ApplicationController
     end
   end
   def show
-  @product = Product.find(params[:id])
+    @product = Product.find(params[:id])
   end
 
   private
 
   def product_params
-    params.require(:product).permit(:name, :description, :image, :technique)
+    params
+      .require(:product)
+      .permit(
+        :name,
+        :description,
+        :image,
+        :image_cache,
+        :remove_image,
+        technique: []
+      )
   end
 end
