@@ -21,7 +21,9 @@ RSpec.describe User, type: :model do
   context 'userが削除された場合' do
     it '削除されたuserのproductが削除されること' do
       user.save
-      user.products.create(name: 'ポートフォリオ1', technique: 'Ruby')
+      user.products.create(name: 'ポートフォリオ1')
+
+      product_technique
       expect { user.destroy }.to change { Product.count }.by(-1)
     end
   end

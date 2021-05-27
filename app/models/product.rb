@@ -1,6 +1,6 @@
 class Product < ApplicationRecord
   validates :name, presence: true
-  validates :technique, presence: true
+  validates :techniques,presence:true
   mount_uploader :image, ImageUploader
 
   belongs_to :user

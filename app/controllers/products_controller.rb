@@ -7,8 +7,22 @@ class ProductsController < ApplicationController
     @technique = Technique.all
   end
   def create
-    @product = Product.new(product_params)
+    @product =
+      Product.new(
+        name: product_params[:name],
+        description: product_params[:description],
+        image: product_params[:image]
+      )
+    @product.user_id = current_user.id
     if @product.save
+      technique_ids = product_params[:techniques]
+      technique_ids.each do |technique_id|
+        product_technique =
+          ProductTechnique.create(
+            product_id: @product.id,
+            technique_id: technique_id
+          )
+      end
       redirect_to products_path, notice: '登録しました'
     else
       @technique = Technique.all
@@ -30,7 +44,7 @@ class ProductsController < ApplicationController
         :image,
         :image_cache,
         :remove_image,
-        technique: []
+        techniques: []
       )
   end
 end

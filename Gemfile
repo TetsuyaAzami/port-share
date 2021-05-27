@@ -36,6 +36,8 @@ group :development, :test do
   gem 'pry-doc'
   gem 'pry-stack_explorer'
   gem 'pry-byebug'
+  gem 'factory_bot_rails'
+  gem 'faker'
 end
 
 group :development do
