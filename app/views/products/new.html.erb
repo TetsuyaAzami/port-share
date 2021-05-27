@@ -19,8 +19,8 @@
     <%= f.text_field :name, autofocus: true, class:"form-control",required: true %>
   </div>
   <div class="field">
-    <%= f.label :technique %><br />
-    <%= f.collection_check_boxes(:technique,@technique,:id,:technique,include_hidden: false) do |b|%>
+    <%= f.label :techniques %><br />
+    <%= f.collection_check_boxes(:techniques,@technique,:id,:technique,include_hidden: false) do |b|%>
     <%= b.label {b.check_box(class: "technique") + b.text }%>
     <% end %>
   </div>

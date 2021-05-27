@@ -11,8 +11,8 @@ ja:
       product:
         name: "作品名"
         image: "イメージ画像"
-        technique: "使用技術"
         description: "作品の説明"
+        techniques: "使用技術"
 
     models:
       user: "ユーザ"
@@ -24,7 +24,7 @@ ja:
               blank: "を入力してください。"
             email:
               blank: "を入力してください。"
-              taken: "%はすでに使用されています。"
+              taken: "はすでに使用されています。"
             password:
               blank: "を入力してください。"
             password_confirmation:
@@ -39,6 +39,8 @@ ja:
               blank: "を選択してください。"
             image:
               blank: "を登録してください。"
+            techniques:
+              blank: "を1つ以上選択してください"
   errors:
     messages:
       extension_whitelist_error: "に登録できるのはjpg,jpeg,gif,pngのみです。拡張子を確認してください。"
