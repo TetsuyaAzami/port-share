@@ -18,6 +18,7 @@ RSpec.describe Product, type: :model do
       expect(product).not_to be_valid
     end
   end
+  
   context '名前が入力されている場合' do
     it 'productが登録されないこと' do
       expect(user).to be_valid

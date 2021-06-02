@@ -14,15 +14,11 @@ class ProductsController < ApplicationController
         image: product_params[:image]
       )
     @product.user_id = current_user.id
+    technique_ids = product_params[:techniques]
+    technique_ids.each do |technique_id|
+      @product.product_techniques.new(technique_id: technique_id.to_i)
+    end
     if @product.save
-      technique_ids = product_params[:techniques]
-      technique_ids.each do |technique_id|
-        product_technique =
-          ProductTechnique.create(
-            product_id: @product.id,
-            technique_id: technique_id
-          )
-      end
       redirect_to products_path, notice: '登録しました'
     else
       @technique = Technique.all
