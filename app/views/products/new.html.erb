@@ -1,4 +1,6 @@
 <%= stylesheet_pack_tag "products/new"%>
+<%= javascript_pack_tag "products/new" %>
+
 <div class="container">
   <h2 class="title text-center mt-5 mb-3">作品の登録</h2>
   <% if @product.errors.any? %>
@@ -18,9 +20,9 @@
     <%= f.label :name %><br />
     <%= f.text_field :name, autofocus: true, class:"form-control",required: true %>
   </div>
-  <div class="field">
+  <div class="field check-boxes">
     <%= f.label :techniques %><br />
-    <%= f.collection_check_boxes(:techniques,@technique,:id,:technique,include_hidden: false) do |b|%>
+    <%= f.collection_check_boxes(:techniques,@technique,:id,:technique,include_hidden: false,required: true) do |b|%>
     <%= b.label {b.check_box(class: "technique") + b.text }%>
     <% end %>
   </div>
@@ -38,7 +40,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "投稿する", class:"form-control"  %>
+    <%= f.submit "投稿する", class:"form-control submit-button"  %>
   </div>
   <% end %>
   <div class="text-center mt-3">

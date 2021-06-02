@@ -1,10 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  subject(:user) do
-    User.new(name: '哲也', email: 'tetuya@email.com', password: 'password')
-  end
-  context '名前が入力されている場合' do
+  subject(:user) { build(:user) }
+  context '名前,email,passwordが全て入力されている場合' do
     it 'ユーザー登録が成功すること' do
       expect(user).to be_valid
     end
@@ -13,17 +11,32 @@ RSpec.describe User, type: :model do
   context '名前が空の場合' do
     it 'ユーザー登録が成功しないこと' do
       user.name = ''
-      user.valid?
+      user.save
       expect(user.errors[:name]).to include('を入力してください。')
+    end
+  end
+
+  context 'emailが空の場合' do
+    it 'ユーザー登録が成功しないこと' do
+      user.email = ''
+      user.save
+      expect(user.errors[:email]).to include('を入力してください。')
+    end
+  end
+
+  context 'passwordが空の場合' do
+    it 'ユーザー登録が成功しないこと' do
+      user.password = ''
+      user.save
+      expect(user.errors[:password]).to include('を入力してください。')
     end
   end
 
   context 'userが削除された場合' do
     it '削除されたuserのproductが削除されること' do
-      user.save
-      user.products.create(name: 'ポートフォリオ1')
-
-      product_technique
+      create(:technique)
+      binding.pry
+      product = create(:product)
       expect { user.destroy }.to change { Product.count }.by(-1)
     end
   end
