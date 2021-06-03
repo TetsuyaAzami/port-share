@@ -4,10 +4,13 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.7.3'
 
 gem 'carrierwave'
+gem 'cloudinary'
 gem 'mini_magick'
 gem 'devise'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
+gem 'dotenv-rails'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.6'
 # Use Puma as the app server
