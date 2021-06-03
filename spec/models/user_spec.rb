@@ -34,10 +34,8 @@ RSpec.describe User, type: :model do
 
   context 'userが削除された場合' do
     it '削除されたuserのproductが削除されること' do
-      create(:technique)
-      binding.pry
       product = create(:product)
-      expect { user.destroy }.to change { Product.count }.by(-1)
+      expect { product.user.destroy }.to change { Product.count }.by(-1)
     end
   end
 end

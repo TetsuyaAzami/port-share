@@ -8,15 +8,14 @@ class ProductsController < ApplicationController
   end
   def create
     @product =
-      Product.new(
+      current_user.products.build(
         name: product_params[:name],
         description: product_params[:description],
         image: product_params[:image]
       )
-    @product.user_id = current_user.id
     technique_ids = product_params[:techniques]
     technique_ids.each do |technique_id|
-      @product.product_techniques.new(technique_id: technique_id.to_i)
+      @product.product_techniques.build(technique_id: technique_id.to_i)
     end
     if @product.save
       redirect_to products_path, notice: '登録しました'
