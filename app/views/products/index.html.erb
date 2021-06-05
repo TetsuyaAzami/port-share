@@ -2,27 +2,30 @@
 <main>
   <h3 class="title text-center my-5">作品一覧</h3>
   <div class="container">
-  <div class="sorts-list d-flex justify-content-around mb-4">
-<a href="#">新着投稿</a>
-<a href="#">人気の投稿</a>
-<a href="#">言語で調べる</a>
+    <div class="sorts-list d-flex justify-content-around mb-4">
+      <a href="#">新着投稿</a>
+      <a href="#">人気の投稿</a>
+      <a href="#">言語で調べる</a>
 
-  </div>
-  <div class="products-list">
-    <% @products.each do |product|%>
-    <div class="card">
-      <% if product.image.content_type%>
-      <%= image_tag product.image.to_s, class:"product-image" %>
-      <% else %>
-      <%= image_pack_tag "Noimage.png" ,class:"product-image" %>
-      <% end %>
-      <div class="card-body text-center">
-        <h5 class="card-title"><%=product.name%></h5>
-        <p class="card-text text-left"><%= truncate(product.description,length: 13,separator: /。/)%> </p>
-        <%= link_to  "この作品を見る", product_path(product), class:"product"%>
-      </div>
     </div>
-    <% end %>
-  </div>
+    <div class="products-list">
+      <% @products.each do |product|%>
+      <div class="card">
+        <% if product.image.present? %>
+        <%= product.image%>
+
+        <%= cl_image_tag(product.image,class:"product-image")%>
+        <% else %>
+        <%= image_pack_tag "Noimage.png", class:"product-image" %>
+        <% end %>
+
+        <div class="card-body text-center">
+          <h5 class="card-title"><%=product.name%></h5>
+          <p class="card-text text-left"><%= truncate(product.description,length: 13,separator: /。/)%> </p>
+          <%= link_to  "この作品を見る", product_path(product), class:"product"%>
+        </div>
+      </div>
+      <% end %>
+    </div>
   </div>
 </main>
