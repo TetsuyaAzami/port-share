@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Port-Share</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
 
-    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+<head>
+  <title><%= full_title(yield :title) %></title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-  <body>
+  <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
   <%= render  "layouts/header" %>
 
-    <% if flash.present? %>
-      <% flash.each do |key, value| %>
-        <%= content_tag(:div, value, class: key) %>
-      <% end %>
+  <% if flash.present? %>
+  <% flash.each do |key, value| %>
+  <%= content_tag(:div, value, class: key) %>
+  <% end %>
   <% end %>
 
-    <%= yield %>
+  <%= yield %>
 
   <%= render "layouts/footer" %>
-  </body>
+</body>
+
 </html>

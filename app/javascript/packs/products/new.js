@@ -28,3 +28,4 @@ function submitEvent() {
 }
 
 window.addEventListener("DOMContentLoaded", submitEvent);
+window.addEventListener("beforeunload",submitEvent)
