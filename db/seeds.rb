@@ -9,3 +9,5 @@
 
 #techniqueテーブル初期データ
 %W[HTML CSS PHP Laravel WordPress Bootstrap Ruby Rails Javascript jQuery Python Flask Unity React Vue.js].each {|technique| Technique.create(technique: technique)}
+
+#productsテーブル初期データ

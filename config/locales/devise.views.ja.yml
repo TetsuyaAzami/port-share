@@ -21,12 +21,14 @@ ja:
         user:
           attributes:
             name:
+              too_long: "は50文字以内です。"
               blank: "を入力してください。"
             email:
               blank: "を入力してください。"
               taken: "はすでに使用されています。"
             password:
               blank: "を入力してください。"
+              too_short: "は6文字以上にしてください。"
             password_confirmation:
               confirmation: "がパスワードと一致しません。"
         product:

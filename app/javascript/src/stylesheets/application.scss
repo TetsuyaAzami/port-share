@@ -40,8 +40,8 @@ body {
   padding-top: 57px;
   padding-bottom: 80px;
 }
-main{
-  padding-bottom:60px ;
+main {
+  padding-bottom: 60px;
 }
 header {
   border-bottom: solid 1px $text-gray;
@@ -98,9 +98,13 @@ footer {
 .field {
   margin: 1rem 0;
 }
-.actions input {
+.actions input[type="submit"] {
   background: $sub-color;
   &:active {
+    background: $main-color;
+  }
+  &:hover {
+    transition: 0.3s;
     background: $main-color;
   }
 }

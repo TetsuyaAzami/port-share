@@ -1,8 +1,9 @@
+<% provide(:title ,"作品詳細")%>
 <%= stylesheet_pack_tag "products/show"%>
 <div class="container">
 <div class="card my-5">
-      <% if @product.image.content_type%>
-      <%= image_tag @product.image.to_s, class:"product-image" %>
+      <% if @product.image.present? %>
+      <%= cl_image_tag @product.image.to_s, class:"product-image" %>
       <% else %>
       <%= image_pack_tag "Noimage.png" ,class:"product-image" %>
       <% end %>
