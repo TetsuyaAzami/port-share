@@ -28,6 +28,8 @@ module PortShareWebpacker
     config.autoload_paths += Dir[Rails.root.join('app', 'uploaders')]
     config.i18n.default_locale = :ja
     config.hosts << '.example.com'
+    config.hosts << 'port-share.herokuapp.com'
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
