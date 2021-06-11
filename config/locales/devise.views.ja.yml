@@ -43,6 +43,8 @@ ja:
               blank: "を登録してください。"
             techniques:
               blank: "を1つ以上選択してください"
+      messages:
+        record_invalid: "適当でない値が入力されています"
   errors:
     messages:
       extension_whitelist_error: "に登録できるのはjpg,jpeg,gif,pngのみです。拡張子を確認してください。"
