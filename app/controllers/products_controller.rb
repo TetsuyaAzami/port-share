@@ -1,12 +1,15 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!
+
   def index
     @products = Product.all
   end
+
   def new
     @product = Product.new
     @technique = Technique.all
   end
+
   def create
     @product =
       current_user.products.build(
@@ -25,8 +28,20 @@ class ProductsController < ApplicationController
       render :new
     end
   end
+
   def show
     @product = Product.find(params[:id])
+  end
+
+  def edit
+    @product = Product.find(params[:id])
+  end
+
+  def destroy
+    binding.pry
+    product = Product.find(params[:id])
+    product.destroy
+    redirect_to products_path,notice: "削除しました"
   end
 
   private

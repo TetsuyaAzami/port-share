@@ -1,16 +1,24 @@
 <% provide(:title ,"作品詳細")%>
 <%= stylesheet_pack_tag "products/show"%>
 <div class="container">
-<div class="card my-5">
-      <% if @product.image.present? %>
-      <%= cl_image_tag @product.image.to_s, class:"product-image" %>
-      <% else %>
-      <%= image_pack_tag "Noimage.png" ,class:"product-image" %>
-      <% end %>
-      <div class="card-body text-center">
-        <h3 class="card-title"><%=@product.name%></h3>
-        <p class="card-text text-center"><%= @product.description%> </p>
-        <%= link_to  "この作品を見に行く", product_path(@product),class:"text-center" %>
+  <div class="card my-5">
+    <% if @product.image.present? %>
+    <%= cl_image_tag @product.image.to_s, class:"product-image" %>
+    <% else %>
+    <%= image_pack_tag "Noimage.png" ,class:"product-image" %>
+    <% end %>
+    <div class="card-body text-center">
+      <h3 class="card-title mb-5"><%=@product.name%></h3>
+      <p class="card-text text-center"><%= @product.description%> </p>
+      <div class="product-actions">
+        <%= link_to  "この作品を見に行く", product_path(@product),class:"text-center mb-1" %>
+        
+        <% if @product.user_id === current_user.id %>
+          <%= link_to  "この作品を編集する", edit_product_path, class:"text-center mb-1" %>
+          <%= link_to  "この作品を削除する", product_path(@product), class:"text-center mb-1",method: :delete, data: { confirm:"本当に削除しますか？" } %>
+        <% end %>
+
       </div>
     </div>
+  </div>
 </div>
