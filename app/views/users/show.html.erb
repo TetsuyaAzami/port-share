@@ -1,0 +1,26 @@
+<%= stylesheet_pack_tag "users/show"%>
+<main>
+  <div class="container">
+    <h3 class="title text-center my-5">マイページ </h3>
+    <h4 class="title text-center mb-5"><%= @user.name %>の作品一覧</h4>
+
+    <div class="products-list">
+      <% @user.products.each do |user_product| %>
+      <div class="card">
+        <% if user_product.image.present? %>
+        <%= cl_image_tag(user_product.image,class:"product-image") %>
+        <% else %>
+        <%= image_pack_tag "Noimage.png", class:"product-image" %>
+        <% end %>
+
+        <div class="card-body text-center">
+          <h5 class="card-title"><%= user_product.name %></h5>
+          <p class="card-text text-left"><%= truncate(user_product.description,length: 13,separator: /。/)%> </p>
+          <%= link_to  "この作品を見る", product_path(user_product), class:"product"%>
+        </div>
+      </div>
+      <% end %>
+
+    </div>
+  </div>
+</main>
