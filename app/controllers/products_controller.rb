@@ -38,7 +38,6 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    binding.pry
     product = Product.find(params[:id])
     product.destroy
     redirect_to products_path,notice: "削除しました"
