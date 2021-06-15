@@ -13,7 +13,6 @@
       <% @products.each do |product|%>
       <div class="card">
         <% if product.image.present? %>
-        <%= product.image %>
         <%= cl_image_tag(product.image,class:"product-image") %>
         <% else %>
         <%= image_pack_tag "Noimage.png", class:"product-image" %>

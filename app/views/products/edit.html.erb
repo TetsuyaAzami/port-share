@@ -1,6 +1,6 @@
 <% provide(:title,"作品の編集") %>
-<%= stylesheet_pack_tag "products/new" %>
-<%= javascript_pack_tag "products/new" %>
+<%= stylesheet_pack_tag "products/show" %>
+<%= javascript_pack_tag "products/show" %>
 
 <div class="container">
   <h2 class="title text-center mt-5 mb-3">作品の編集</h2>
@@ -21,18 +21,14 @@
     <%= f.label :name %><br />
     <%= f.text_field :name, autofocus: true, class:"form-control",required: true %>
   </div>
-<%
-=begin
-%>
+
   <div class="field check-boxes">
     <%= f.label :techniques %><br />
-    <%= f.collection_check_boxes(:techniques,@technique,:id,:technique,include_hidden: false,required: true) do |b|%>
+    <%= f.collection_check_boxes(:techniques,@technique,:id,:technique,include_hidden: false,required: true,checked: used_product_techniques ) do |b|%>
     <%= b.label {b.check_box(class: "technique") + b.text }%>
     <% end %>
   </div>
-<%
-=end
-%>
+
 
   <div class="field">
     <%= f.label :image %><br />
@@ -48,7 +44,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "投稿する", class:"form-control submit-button"  %>
+    <%= f.submit "編集を確定する", class:"form-control submit-button"  %>
   </div>
   <% end %>
   <div class="text-center mt-3">
