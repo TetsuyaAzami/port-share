@@ -1,6 +1,10 @@
 @import "./_variables.scss";
 @import "~bootstrap/scss/bootstrap";
 
+$fa-font-path: '@fortawesome/fontawesome-free/webfonts';
+@import '@fortawesome/fontawesome-free/scss/fontawesome';
+
+
 /*========reset css=============*/
 * {
   margin: 0;
