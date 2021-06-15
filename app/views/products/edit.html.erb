@@ -1,6 +1,4 @@
 <% provide(:title,"作品の編集") %>
-<%= stylesheet_pack_tag "products/show" %>
-<%= javascript_pack_tag "products/show" %>
 
 <div class="container">
   <h2 class="title text-center mt-5 mb-3">作品の編集</h2>
@@ -33,7 +31,7 @@
 
   <div class="field">
     <%= f.label :image %><br />
-    <%= image_tag(@product.image_url) if @product.image?%>
+    <%= image_tag(@product.image_url) if @product.image? %>
     <%= f.file_field :image, class:"form-control" %>
     <%= f.hidden_field :image_cache %>
     <label>
@@ -52,3 +50,5 @@
   </div>
 
 </div>
+
+<%= javascript_pack_tag "products/edit" %>

@@ -44,9 +44,23 @@ class ProductsController < ApplicationController
     redirect_to products_path, notice: '削除しました'
   end
 
+
+
+  private
+
+  def product_params
+    params
+    .require(:product)
+    .permit(:name, :description, :image, :image_cache, :remove_image)
+  end
+
+  def used_technique_ids
+    params.require(:product).permit(techniques: [])
+  end
+
   def create_new_product
     @product = current_user.products.new(product_params)
-    used_technique_ids.each do |used_technique_id|
+    used_technique_ids[:techniques].each do |used_technique_id|
       @product.product_techniques.build(technique_id: used_technique_id)
     end
     @product.save
@@ -60,18 +74,5 @@ class ProductsController < ApplicationController
         @product.product_techniques.create(technique_id: used_technique_id)
       end
     end
-  end
-
-
-  private
-
-  def product_params
-    params
-    .require(:product)
-    .permit(:name, :description, :image, :image_cache, :remove_image)
-  end
-
-  def used_technique_ids
-    params.require(:product).permit(techniques: [])
   end
 end

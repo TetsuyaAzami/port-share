@@ -1,10 +1,8 @@
-import "../../src/stylesheets/products/new.scss";
-
 const submit = document.querySelector("input[type='submit']");
 const checkBoxList = document.querySelectorAll("input[type='checkbox']");
+
 submit.addEventListener("click", () => {
   let checkedCount = 0;
-
   checkBoxList.forEach((checkbox) => {
     if (checkbox.checked === true) {
       checkedCount++;

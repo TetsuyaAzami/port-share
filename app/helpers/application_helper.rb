@@ -9,7 +9,7 @@ module ApplicationHelper
   end
 
   def seeds_image(technique)
-   "seed-images/#{technique}.jpg"
+   "seed-images/#{technique}.(jpg|png)"
   end
 
   def seeds_description(technique)
