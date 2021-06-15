@@ -24,7 +24,8 @@
 
   <div class="field check-boxes">
     <%= f.label :techniques %><br />
-    <%= f.collection_check_boxes(:techniques,@technique,:id,:technique,include_hidden: false,required: true,checked: used_product_techniques ) do |b|%>
+    <%= f.collection_check_boxes(:techniques,@technique,:id,:technique,include_hidden: false,required: true,checked: @product.technique_ids ) do |b|%>
+
     <%= b.label {b.check_box(class: "technique") + b.text }%>
     <% end %>
   </div>
