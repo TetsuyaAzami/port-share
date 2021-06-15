@@ -9,17 +9,48 @@
       <ul class="navbar-nav d-flex m-0">
         <% if current_user %>
 
-        <li class="nav-item"><%= link_to  "マイページ", user_path(current_user) %></li>
-        <li class="nav-item"><%= link_to  "作品一覧", products_path %></li>
-        <li class="nav-item"><%= link_to  "投稿する", new_product_path %></li>
-        <li class="nav-item"><%= link_to  "ログアウト", destroy_user_session_path, method: :delete %></li>
+        <li class="nav-item">
+          <%= link_to user_path(current_user) do %>
+          <i class="fas fa-user"></i>
+          <span>マイページ</span>
+          <% end %>
+        </li>
+
+        <li class="nav-item"><%= link_to products_path do %>
+          <i class="fas fa-list-alt"></i>
+          <span>作品一覧</span>
+          <% end %>
+        </li>
+
+        <li class="nav-item">
+          <%= link_to new_product_path do %>
+          <i class="fas fa-plus"></i>
+          <span>投稿する</span>
+          <% end %>
+        </li>
+
+        <li class="nav-item">
+          <%= link_to destroy_user_session_path, method: :delete do%>
+          <i class="fas fa-sign-out-alt"></i>
+          <span>ログアウト</span>
+          <% end %>
+        </li>
         <% else %>
-        <li> <%= link_to  "新規登録", new_user_registration_path %></li>
-        <li> <%= link_to  "ログイン", new_user_session_path %></li>
-        <% end %>
+        <li>
+          <%= link_to new_user_registration_path do %>
+          <i class="fas fa-user-plus"></i>
+          <span>新規登録</span>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to new_user_session_path do %>
+          <i class="fas fa-sign-in-alt"></i>
+          <span>ログイン</span>
+          <% end %>
+        </li>
       </ul>
 
-
+      <% end %>
     </nav>
   </div>
 </header>
