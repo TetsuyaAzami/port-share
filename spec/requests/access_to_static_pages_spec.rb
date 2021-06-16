@@ -62,16 +62,43 @@ RSpec.describe 'Access to static_pages', type: :request do
     end
   end
 
-  # context 'GET products#show' do
-  #   before do
-  #     sign_in user
-  #     get product_path(user)
-  #   end
-  #   it 'responds successfully' do
-  #     expect(response).to have_http_status 200
-  #   end
-  #   it "has title '作品詳細 | Port-Share'" do
-  #     expect(response.body).to include '作品詳細 | Port-Share'
-  #   end
-  # end
+  context 'GET products#show' do
+    before do
+      sign_in user
+      get product_path(Product.pluck(:id)[0])
+    end
+    it 'responds successfully' do
+      expect(response).to have_http_status 200
+    end
+    it "has title '作品詳細 | Port-Share'" do
+      expect(response.body).to include '作品詳細 | Port-Share'
+    end
+  end
+
+  context 'GET products#edit' do
+    before do
+      sign_in user
+      get edit_product_path(user.products.pluck(:id)[0])
+    end
+    it 'responds successfully' do
+      expect(response).to have_http_status 200
+    end
+    it "has title '作品詳細 | Port-Share'" do
+      expect(response.body).to include '作品の編集 | Port-Share'
+    end
+  end
+
+  context 'GET users#show' do
+    before do
+      sign_in user
+      get user_path(user.id)
+    end
+    it 'responds successfully' do
+      expect(response).to have_http_status 200
+    end
+    it "has title '作品詳細 | Port-Share'" do
+      expect(response.body).to include "#{user.name} | Port-Share"
+    end
+  end
+
 end

@@ -5,10 +5,11 @@ RSpec.describe Product, type: :model do
   subject(:product) do
     user.products.new(name: 'ポートフォリオ1')
   end
+
   # context 'Productが削除された場合' do
   #   it '関連する中間テーブルも削除されること' do
-
-  #     expect { product.destroy }.to change { ProductTechnique.count }.by(-1)
+  #     product.save
+  #     expect{product.destroy}.to change { ProductTechnique.count }.by(-1)
   #   end
   # end
 
@@ -18,15 +19,11 @@ RSpec.describe Product, type: :model do
       expect(product).not_to be_valid
     end
   end
-  
+
   context '名前が入力されている場合' do
     it 'productが登録されないこと' do
       expect(user).to be_valid
     end
   end
-  # context "techniquesが空の場合" do
-  #   it "productが登録されないこと" do
 
-  #   end
-  # end
 end
