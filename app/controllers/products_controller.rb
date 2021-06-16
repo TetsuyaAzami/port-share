@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!
+  before_action :check_whether_product_producer,{only:[:edit,:update,:destroy]}
 
   def index
     @products = Product.all
@@ -39,8 +40,8 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    product = Product.find(params[:id])
-    product.destroy
+    @product = Product.find(params[:id])
+    @product.destroy
     redirect_to products_path, notice: '削除しました'
   end
 
