@@ -1,5 +1,23 @@
-newrequire 'rails_helper'
+require 'rails_helper'
 
 RSpec.describe Technique, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+    it "Techniqueテーブルが不変であること" do
+      expect(Technique.pluck(:technique)).to eq(%W[
+        HTML
+        CSS
+        PHP
+        Laravel
+        WordPress
+        Bootstrap
+        Ruby
+        Rails
+        Javascript
+        jQuery
+        Python
+        Flask
+        Unity
+        React
+        Vue.js
+        ])
+      end
 end
