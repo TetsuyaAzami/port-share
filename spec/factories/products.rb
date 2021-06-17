@@ -1,6 +1,7 @@
 FactoryBot.define do
   factory :product do
-    name { Faker::Name.name }
+    sequence(:name){|n| "Portfolio-#{n}"}
+    description {"Lorem"}
     association :user
     after(:create) { |product| product.product_techniques.create(technique_id: "#{rand(1..15)}") }
   end
