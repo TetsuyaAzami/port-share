@@ -87,7 +87,6 @@ RSpec.describe 'Access to static_pages', type: :request do
       expect(response.body).to include '作品の編集 | Port-Share'
     end
   end
-
   context 'GET users#show' do
     before do
       sign_in user

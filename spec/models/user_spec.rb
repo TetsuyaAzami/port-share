@@ -2,6 +2,10 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   subject(:user) { build(:user) }
+  it '管理ユーザーが存在すること' do
+    expect(User.find(1).admin).to be true
+  end
+
   context '名前,email,passwordが全て入力されている場合' do
     it 'ユーザー登録が成功すること' do
       expect(user).to be_valid
