@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!
   before_action :check_whether_product_producer,{only:[:edit,:update,:destroy]}
+  before_action :set_product,only: %i[show edit update destroy]
 
   def index
     @products = Product.all
@@ -21,16 +22,13 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @product = Product.find(params[:id])
   end
 
   def edit
-    @product = Product.find(params[:id])
     @technique = Technique.all
   end
 
   def update
-    @product = Product.find(params[:id])
     if update_product
       redirect_to product_path(@product), notice: '編集完了しました'
     else
@@ -40,7 +38,6 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    @product = Product.find(params[:id])
     @product.destroy
     redirect_to products_path, notice: '削除しました'
   end
@@ -48,16 +45,19 @@ class ProductsController < ApplicationController
 
 
   private
+  
+  def check_whether_product_producer
+    @product = Product.find(params[:id])
+    unless current_user.admin == true || current_user.id === @product.user_id
+    redirect_to product_path(@product),notice: "編集・削除権限がありません"
+    end
 
-  def product_params
-    params
-    .require(:product)
-    .permit(:name, :description, :image, :image_cache, :remove_image)
   end
 
-  def used_technique_ids
-    params.require(:product).permit(techniques: [])
+  def set_product
+    @product = Product.find(params[:id])
   end
+
 
   def create_new_product
     @product = current_user.products.new(product_params)
@@ -76,4 +76,14 @@ class ProductsController < ApplicationController
       end
     end
   end
+end
+
+def product_params
+  params
+  .require(:product)
+  .permit(:name, :description, :image, :image_cache, :remove_image)
+end
+
+def used_technique_ids
+  params.require(:product).permit(techniques: [])
 end

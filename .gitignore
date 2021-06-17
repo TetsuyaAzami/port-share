@@ -21,7 +21,8 @@
 # Ignore uploaded files in development.
 /storage/*
 !/storage/.keep
-
+/public/packs
+/public/packs-test
 /public/assets
 .byebug_history
 
@@ -35,4 +36,5 @@
 yarn-debug.log*
 .yarn-integrity
 .env
+.rspec
 db/seeds.rb
