@@ -9,7 +9,7 @@ module ApplicationHelper
   end
 
   def seeds_image(technique)
-   "seed-images/#{technique}.(jpg|png)"
+   "https://res.cloudinary.com/hqyupfdfe/image/upload/v1623534062/seed-images/#{technique}"
   end
 
   def seeds_description(technique)
