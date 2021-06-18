@@ -8,6 +8,7 @@ ja:
         password: "パスワード"
         password_confirmation: "確認用パスワード"
         remember_me: "ログインを記憶"
+        profile: "自己紹介"
       product:
         name: "作品名"
         image: "イメージ画像"
@@ -27,11 +28,14 @@ ja:
             email:
               blank: "を入力してください。"
               taken: "はすでに使用されています。"
+              invalid: "の形式が正しくありません。"
             password:
               blank: "を入力してください。"
               too_short: "は6文字以上にしてください。"
             password_confirmation:
               confirmation: "がパスワードと一致しません。"
+            profile:
+              too_long: "は250文字以内にしてください。"
         product:
           attributes:
             user:

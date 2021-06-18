@@ -1,9 +1,11 @@
-<%= provide(:title,"#{current_user.name}") %>
+<%= provide(:title,"#{@user.name}") %>
 
 <main>
   <div class="container">
     <h3 class="title text-center my-5">マイページ </h3>
-    <h4 class="title text-center mb-5"><%= @user.name %>の作品一覧</h4>
+    <h4 class="title text-center mb-5">
+      <%= @user.name %>の作品一覧
+    </h4>
 
     <div class="products-list">
       <% @user.products.each do |user_product| %>

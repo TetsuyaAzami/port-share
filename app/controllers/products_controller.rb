@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!
-  before_action :check_whether_product_producer,{only:[:edit,:update,:destroy]}
+  before_action :check_whether_correct_user,{only:[:edit,:update,:destroy]}
   before_action :set_product,only: %i[show edit update destroy]
 
   def index
@@ -45,10 +45,10 @@ class ProductsController < ApplicationController
 
 
   private
-  
-  def check_whether_product_producer
+
+  def check_whether_correct_user #他ユーザーのproductsを編集・削除できないように制限（管理者ユーザーは除く）
     @product = Product.find(params[:id])
-    unless current_user.admin == true || current_user.id === @product.user_id
+    unless current_user.admin == true || current_user.id == @product.user_id
     redirect_to product_path(@product),notice: "編集・削除権限がありません"
     end
 
@@ -68,7 +68,7 @@ class ProductsController < ApplicationController
   end
 
   def update_product
-    ActiveRecord::Base.transaction do
+    ActiveRecord::Base.transaction do #productがupdateされた時に、必ず中間テーブルもupdateされるようにtransactionで管理
       @product.update(product_params)
       @product.product_techniques.delete_all
       used_technique_ids[:techniques].each do |used_technique_id|
