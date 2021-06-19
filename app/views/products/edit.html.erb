@@ -5,8 +5,7 @@
   <% if @product.errors.any? %>
   <div class="alert alert-warning">
     <ul>
-      <% @product.errors.full_messages.each do |message
-  |%>
+      <% @product.errors.full_messages.each do |message|%>
       <li><%=message%> </li>
       <% end %>
     </ul>
@@ -20,13 +19,23 @@
     <%= f.text_field :name, autofocus: true, class:"form-control",required: true %>
   </div>
 
+  <% if params[:product].present? %>
   <div class="field check-boxes">
     <%= f.label :techniques %><br />
-    <%= f.collection_check_boxes(:techniques,@technique,:id,:technique,include_hidden: false,required: true,checked: @product.technique_ids ) do |b|%>
-
+    <%= f.collection_check_boxes(:techniques,@technique,:id,:technique,include_hidden: false,checked: params[:product][:techniques],required: true) do |b|%>
     <%= b.label {b.check_box(class: "technique") + b.text }%>
     <% end %>
   </div>
+
+  <% else %>
+  <div class="field check-boxes">
+    <%= f.label :techniques %><br />
+    <%= f.collection_check_boxes(:techniques,@technique,:id,:technique,include_hidden: false,required: true,checked: @product.technique_ids ) do |b|%>
+    <%= b.label {b.check_box(class: "technique") + b.text }%>
+    <% end %>
+  </div>
+
+  <% end %>
 
 
   <div class="field">
@@ -34,6 +43,12 @@
     <%= image_tag(@product.image_url) if @product.image? %>
     <%= f.file_field :image, class:"form-control" %>
     <%= f.hidden_field :image_cache %>
+    <label>
+  </div>
+
+  <div class="field">
+    <%= f.label :url %><br />
+    <%= f.text_field :url, class:"form-control",required: true %>
     <label>
   </div>
 
@@ -46,8 +61,9 @@
     <%= f.submit "編集を確定する", class:"form-control submit-button"  %>
   </div>
   <% end %>
-  <div class="text-center mt-3">
-  </div>
+<div class="actions text-center">
+  <%= link_to  "この作品を削除する", product_path(@product), class:"actions danger",method: :delete, data: { confirm:"本当に削除しますか？" } %>
+</div>
 
 </div>
 

@@ -19,17 +19,37 @@
     <%= f.label :name %><br />
     <%= f.text_field :name, autofocus: true, class:"form-control",required: true %>
   </div>
+
+  <% if params[:product].present? %>
+  <div class="field check-boxes">
+    <%= f.label :techniques %><br />
+    <%= f.collection_check_boxes(:techniques,@technique,:id,:technique,include_hidden: false,checked: params[:product][:techniques],required: true) do |b|%>
+    <%= b.label {b.check_box(class: "technique") + b.text }%>
+    <% end %>
+  </div>
+
+  <% else %>
   <div class="field check-boxes">
     <%= f.label :techniques %><br />
     <%= f.collection_check_boxes(:techniques,@technique,:id,:technique,include_hidden: false,required: true) do |b|%>
     <%= b.label {b.check_box(class: "technique") + b.text }%>
     <% end %>
   </div>
+
+  <% end %>
+
+
   <div class="field">
     <%= f.label :image %><br />
     <%= image_tag(@product.image_url) if @product.image?%>
     <%= f.file_field :image, class:"form-control" %>
     <%= f.hidden_field :image_cache %>
+    <label>
+  </div>
+
+  <div class="field">
+    <%= f.label :url %><br />
+    <%= f.text_field :url, class:"form-control" ,required: true %>
     <label>
   </div>
 

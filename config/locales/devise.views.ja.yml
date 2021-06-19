@@ -15,6 +15,7 @@ ja:
         description: "作品の説明"
         techniques: "使用技術"
         product_techniques: "使用技術"
+        url: "ポートフォリオのURL"
 
     models:
       user: "ユーザ"
@@ -42,6 +43,7 @@ ja:
               required: "を作成してください。"
             name:
               blank: "を入力してください。"
+              too_long: "は50文字以内にしてください。"
             technique:
               blank: "を選択してください。"
             image:
@@ -50,6 +52,10 @@ ja:
               blank: "を1つ以上選択してください"
             product_techniques:
               invalid: "使用技術を適切に選んでください"
+            url:
+              invalid: "はhttp、またはhttpsから始まるURLを指定してください。"
+            description:
+              too_long: "は250文字以内にしてください。"
       messages:
         record_invalid: "適当でない値が入力されています"
   errors:
