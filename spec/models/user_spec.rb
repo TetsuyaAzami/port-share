@@ -43,7 +43,7 @@ RSpec.describe User, type: :model do
       expect(user.errors[:name]).to include('は50文字以内です。')
     end
   end
-  
+
   context 'profileが251文字以上の場合' do
     it '保存に失敗すること' do
       user.profile = "a" * 251
