@@ -11,11 +11,10 @@
       <h3 class="card-title mb-5"><%=@product.name%></h3>
       <p class="card-text text-center"><%= @product.description%> </p>
       <div class="product-actions">
-        <%= link_to  "この作品を見に行く", product_path(@product),class:"text-center mb-1" %>
+        <%= link_to  "この作品を見に行く", "#{@product.url}",class:"text-center mb-1",target: "_blank" %>
 
         <% if current_user.admin == true || @product.user_id == current_user.id %>
           <%= link_to  "この作品を編集する", edit_product_path, class:"text-center mb-1" %>
-          <%= link_to  "この作品を削除する", product_path(@product), class:"actions danger",method: :delete, data: { confirm:"本当に削除しますか？" } %>
         <% end %>
 
       </div>

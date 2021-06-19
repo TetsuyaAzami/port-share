@@ -68,20 +68,19 @@ class ProductsController < ApplicationController
   end
 
   def update_product
-    ActiveRecord::Base.transaction do #productがupdateされた時に、必ず中間テーブルもupdateされるようにtransactionで管理
       @product.update(product_params)
       @product.product_techniques.delete_all
       used_technique_ids[:techniques].each do |used_technique_id|
-        @product.product_techniques.create(technique_id: used_technique_id)
+        @product.product_techniques.new(technique_id: used_technique_id)
       end
+      @product.save
     end
-  end
 end
 
 def product_params
   params
   .require(:product)
-  .permit(:name, :description, :image, :image_cache, :remove_image)
+  .permit(:name,:image, :image_cache, :remove_image, :url, :description)
 end
 
 def used_technique_ids
