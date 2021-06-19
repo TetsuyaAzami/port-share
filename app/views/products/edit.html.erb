@@ -19,23 +19,15 @@
     <%= f.text_field :name, autofocus: true, class:"form-control",required: true %>
   </div>
 
-  <% if params[:product].present? %>
+  <%
+    whether_params_have_product = params[:product].present? ? params[:product][:techniques] : @product.technique_ids
+  %>
   <div class="field check-boxes">
     <%= f.label :techniques %><br />
-    <%= f.collection_check_boxes(:techniques,@technique,:id,:technique,include_hidden: false,checked: params[:product][:techniques],required: true) do |b|%>
+    <%= f.collection_check_boxes(:techniques,@technique,:id,:technique,include_hidden: false,checked: whether_params_have_product, required: true) do |b|%>
     <%= b.label {b.check_box(class: "technique") + b.text }%>
     <% end %>
   </div>
-
-  <% else %>
-  <div class="field check-boxes">
-    <%= f.label :techniques %><br />
-    <%= f.collection_check_boxes(:techniques,@technique,:id,:technique,include_hidden: false,required: true,checked: @product.technique_ids ) do |b|%>
-    <%= b.label {b.check_box(class: "technique") + b.text }%>
-    <% end %>
-  </div>
-
-  <% end %>
 
 
   <div class="field">
