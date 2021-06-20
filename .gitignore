@@ -5,7 +5,7 @@
 #   git config --global core.excludesfile '~/.gitignore_global'
 
 # Ignore bundler config.
-/.bundle
+.bundle
 
 # Ignore all logfiles and tempfiles.
 /log/*
@@ -36,5 +36,6 @@
 yarn-debug.log*
 .yarn-integrity
 .env
+.pryrc
 .rspec
 db/seeds.rb
