@@ -1,17 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe Product, type: :model do
-  let(:user) { User.new(name: 'tetu', email: 'tetuy@email', password: 'passsword') }
-  subject(:product) do
-    user.products.new(name: 'ポートフォリオ1')
-  end
+  subject!(:product){create(:product)}
+  let(:user) { product.user }
 
-  # context 'Productが削除された場合' do
-  #   it '関連する中間テーブルも削除されること' do
-  #     product.save
-  #     expect{product.destroy}.to change { ProductTechnique.count }.by(-1)
-  #   end
-  # end
+  context 'Productが削除された場合' do
+    it '関連する中間テーブルも削除されること' do
+      expect{product.destroy}.to change { ProductTechnique.count }.by(-1)
+    end
+  end
 
   context '名前が空である場合' do
     it 'productが登録されないこと' do
@@ -23,7 +20,7 @@ RSpec.describe Product, type: :model do
 
   context '名前が入力されている場合' do
     it 'productの登録に成功すること' do
-      expect(user).to be_valid
+      expect(product).to be_valid
     end
   end
 
