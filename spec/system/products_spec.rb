@@ -4,20 +4,19 @@ RSpec.describe Product ,type: :system do
   let(:user){
     create(:user,:with_products)
   }
-  # context '作品一覧機能' do
-  #   before do
-  #     sign_in user
-  #     visit products_path
-  #   end
-  #   it '作成した作品が表示されている' do
+  context '作品一覧機能' do
+    before do
+      sign_in_as user
+      visit products_path
+    end
+    it '作成した作品が表示されている' do
+    expect(current_path).to eq products_path
+    expect(page).to have_content "#{user.products[0].name}"
+    expect(page).to have_content "#{user.products[1].name}"
+    expect(page).to have_content "#{user.products[2].name}"
+    expect(page).to have_content 'Lorem'
+    end
 
-  #   product.save
-  #   expect(page).to have_content 'Portfolio-1'
-  #   expect(page).to have_content 'Portfolio-2'
-  #   expect(page).to have_content 'Portfolio-3'
-  #   expect(page).to have_content 'Lorem'
-  #   end
-
-  # end
+  end
 
 end
