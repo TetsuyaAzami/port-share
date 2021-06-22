@@ -38,4 +38,4 @@ yarn-debug.log*
 .env
 .pryrc
 .rspec
-db/seeds.rb
+
