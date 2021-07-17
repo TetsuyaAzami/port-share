@@ -6,16 +6,25 @@
 // All it does is render <div>Hello Vue</div> at the bottom of the page.
 
 // vue --version2以前
-import Vue from 'vue'
-import App from '../components/app.vue'
+import Vue from "vue";
+import App from "../components/products/app.vue";
 import router from "../router/router";
+import Cloudinary from "cloudinary-vue";
+Vue.use(Cloudinary, {
+  configuration: {
+    cloudName: "hqyupfdfe",
+    secure: true,
+  },
+});
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
+  const node = document.getElementById("productsIndex");
+  const props = JSON.parse(node.getAttribute("data"));
   const app = new Vue({
     router,
-    render: h => h(App)
-  }).$mount("#vue-template")
-})
+    render: (h) => h(App, { props }),
+  }).$mount("#vue-template");
+});
 
 //vue --version3以降
 // import { createApp } from "vue";
@@ -27,7 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
 //   app.use(router)
 //   app.mount("#vue-template");
 // })
-
 
 // The above code uses Vue without the compiler, which means you cannot
 // use Vue to target elements in your existing html templates. You would
@@ -42,10 +50,8 @@ document.addEventListener('DOMContentLoaded', () => {
 //   <app></app>
 // </div>
 
-
 // import Vue from 'vue/dist/vue.esm'
 // import App from '../components/app.vue'
-
 
 // document.addEventListener('DOMContentLoaded', () => {
 //   const app = new Vue({

@@ -2,8 +2,11 @@
 <main>
   <h3 class="title text-center my-5">作品一覧</h3>
   <div class="container">
-    <%# <div id='vue-template'></div> %>
+    <div id='vue-template'></div>
 
+    <%
+=begin
+%>
     <div class="sorts-list d-flex justify-content-around mb-4">
       <a href="#">新着投稿</a>
       <a href="#">人気の投稿</a>
@@ -27,10 +30,19 @@
       </div>
       <% end %>
     </div>
-
+    <%
+=end
+%>
   </div>
 </main>
 
 <%= stylesheet_pack_tag "products/index"%>
 <%= javascript_pack_tag "hello_vue" %>
 <%= stylesheet_pack_tag "hello_vue"%>
+
+<%= content_tag :div,
+   id: "productsIndex",
+   data: {
+    products:@products
+   }.to_json do %>
+<% end %>
