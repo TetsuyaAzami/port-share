@@ -15,3 +15,8 @@
   </div>
 </template>
 
+<style>
+.link--active{
+  font-size: 20px;
+}
+</style>
