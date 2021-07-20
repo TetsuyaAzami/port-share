@@ -3,9 +3,9 @@
     <div v-for="product in products" :key="product.id">
       <div class="card">
         <cld-image
-          v-if="productImage"
+          v-if="product.image.url"
           class="product-image"
-          publicId="seed-images/React.png"
+          :publicId="`${product.image.url}`"
         >
         </cld-image>
         <cld-image v-else class="product-image" publicId="Noimage.png">
@@ -42,7 +42,7 @@
 export default {
   data() {
     return {
-      productImage: false,
+      productImage: true,
     };
   },
   props: {
@@ -53,24 +53,25 @@ export default {
   },
   filters: {
     truncate(value, length = 15) {
-        if (value.length <= length) {
-          return value;
-        }
-        return value.substring(0,length) + "...";
+      if (value.length <= length) {
+        return value;
+      }
+      return value.substring(0, length) + "...";
     },
   },
-  // created: function(){
-  //  this.clImage()
-  // },
-  //   computed:{
-  //   clImage(){
-  //   if (typeof this.products.image === 'undefined'){
-  //  productImage === false
-  //   }else{
-  // productImage === true
-  //   }
-  // }
-
-  //   }
+  created() {
+    this.sort_by_created_at;
+  },
+  computed: {
+    sort_by_created_at() {
+      this.products.sort(function (a, b) {
+        if (a.id > b.id) {
+          return -1;
+        } else {
+          return 1;
+        }
+      });
+    },
+  },
 };
 </script>
