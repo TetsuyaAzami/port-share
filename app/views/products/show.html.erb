@@ -11,16 +11,14 @@
       <h3 class="card-title mb-5"><%=@product.name%></h3>
       <p class="card-text text-center"><%= @product.description%> </p>
       <div class="product-actions">
+
+        <div id="render_like" class="mb-1">
+          <%= render "likes/like",product:@product %>
+        </div>
         <%= link_to  "この作品を見に行く", "#{@product.url}",class:"text-center mb-1",target: "_blank" %>
 
         <% if current_user.admin == true || @product.user_id == current_user.id %>
         <%= link_to  "この作品を編集する", edit_product_path, class:"text-center mb-1" %>
-        <% end %>
-
-        <% if current_user.liked_by?(@product.id) %>
-        <td><%= link_to  "いいねを外す", create_like_path,method: :DELETE %><%= @product.likes.count%></td>
-        <% else %>
-        <td><%= link_to  "いいね", destroy_like_path,method: :POST %><%= @product.likes.count%></td>
         <% end %>
 
       </div>
