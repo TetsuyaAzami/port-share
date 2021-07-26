@@ -3,36 +3,6 @@
   <h3 class="title text-center my-5">作品一覧</h3>
   <div class="container">
     <div id='vue-template'></div>
-
-    <%
-=begin
-%>
-    <div class="sorts-list d-flex justify-content-around mb-4">
-      <a href="#">新着投稿</a>
-      <a href="#">人気の投稿</a>
-      <a href="#">言語で調べる</a>
-
-    </div>
-    <div class="products-list">
-      <% @products.each do |product|%>
-      <div class="card">
-        <% if product.image.present? %>
-        <%= cl_image_tag(product.image,class:"product-image") %>
-        <% else %>
-        <%= cl_image_tag "Noimage.png", class:"product-image" %>
-        <% end %>
-
-        <div class="card-body text-center">
-          <h5 class="card-title"><%=product.name%></h5>
-          <p class="card-text text-left"><%= truncate(product.description,length: 13,separator: /。/)%> </p>
-          <%= link_to  "この作品を見る", product_path(product), class:"product"%>
-        </div>
-      </div>
-      <% end %>
-    </div>
-    <%
-=end
-%>
   </div>
 </main>
 
@@ -40,9 +10,12 @@
 <%= javascript_pack_tag "hello_vue" %>
 <%= stylesheet_pack_tag "hello_vue"%>
 
+<!--productsをvueに渡す-->
 <%= content_tag :div,
    id: "productsIndex",
    data: {
     products:@products
    }.to_json do %>
 <% end %>
+
+<!--likeが多い順に並び替えたproductsをvueに渡す-->

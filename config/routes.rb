@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   resources :products do
     resources :product_techniques,only:[:create]
   end
+  get '/products_favor',to: 'products#index'
+  get '/products_search_by_language', to: 'products#index'
+  
   resources :users, only: [:show, :edit,:update,:destroy]
 
   post 'like/:id' => 'likes#create',as: 'create_like'
