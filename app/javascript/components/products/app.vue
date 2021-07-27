@@ -1,32 +1,32 @@
 <template>
   <div>
     <AppLinks></AppLinks>
-    <router-view :products= "products"></router-view>
+    <router-view :products="products" :products_ranking="products_ranking"></router-view>
   </div>
-
 </template>
 <script>
-import AppLinks from "./AppLinks.vue"
-import CreatedAtDesc from "./CreatedAtDesc.vue"
-import FavorDesc from "./FavorDesc.vue"
-import SearchByLanguage from "./SearchByLanguage.vue"
+import AppLinks from "./AppLinks.vue";
+import CreatedAtDesc from "./CreatedAtDesc.vue";
+import FavorDesc from "./FavorDesc.vue";
+import SearchByLanguage from "./SearchByLanguage.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     AppLinks,
     CreatedAtDesc,
     FavorDesc,
-    SearchByLanguage
+    SearchByLanguage,
   },
   props: {
     products: {
       type: Array,
       default: () => "",
     },
-  }
-}
-
+    products_ranking: {
+      type: Array,
+      default: () => "",
+    },
+  },
+};
 </script>
-
-

@@ -137,20 +137,15 @@ footer {
 /* ===== いいね カラー ==========*/
 .heart-red {
   color: red;
+  text-decoration: none!important;
   &:hover{
     color: red!important;
   }
 }
-.delete-like,
-.push-like {
-  margin-right: 5px;
-}
 .heart-glay {
   color: $text-gray;
-}
-
-.heart-glay-hover{
+  text-decoration: none!important;
   &:hover {
-    color: rgb(239, 214, 217);
+    color: rgb(239, 214, 217)!important;
   }
 }

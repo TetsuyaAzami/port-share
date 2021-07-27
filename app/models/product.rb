@@ -9,4 +9,9 @@ class Product < ApplicationRecord
   has_many :techniques, through: :product_techniques
   has_many :likes
 
+
+  def self.ranking
+    includes(:likes).sort {|a,b| b.likes.count <=> a.likes.count}
+  end
+
 end

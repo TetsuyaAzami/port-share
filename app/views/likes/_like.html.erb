@@ -1,13 +1,15 @@
 <% if current_user.liked_by?(@product.id) %>
 <td>
-  <span class="delete-like">いいね</span>
   <%= link_to destroy_like_path,class:'heart-red',method: :DELETE,remote:true do %>
   <i class="fas fa-heart"></i>
   <%end%>
+  <%=@product.likes.count%>
+</td>
   <% else %>
 <td>
-  <span class="push-like">いいね</span>
   <%= link_to create_like_path,class:'heart-glay',method: :POST,remote:true do %>
-  <i class="fas fa-heart heart-glay-hover"></i>
+  <i class="fas fa-heart"></i>
   <%end%>
-  <% end %>
+  <%=@product.likes.count%>
+</td>
+<% end %>
