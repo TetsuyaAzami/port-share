@@ -5,6 +5,7 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.all
+    @products_ranks = Product.ranking
   end
 
   def new

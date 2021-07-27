@@ -20,10 +20,19 @@ Vue.use(Cloudinary, {
 document.addEventListener("DOMContentLoaded", () => {
   const node = document.getElementById("productsIndex");
   const props = JSON.parse(node.getAttribute("data"));
+  const nodeRanking = document.getElementById("productsRanking");
+  const propsRanking = JSON.parse(nodeRanking.getAttribute("data"));
   const app = new Vue({
+    el: "#vue-template",
     router,
-    render: (h) => h(App, { props }),
-  }).$mount("#vue-template");
+    render: (h) =>
+      h(App, {
+        props: {
+          products: props.products,
+          products_ranking:propsRanking.products
+        },
+      })
+  });
 });
 
 //vue --version3以降

@@ -1,6 +1,6 @@
 <template>
   <div class="products-list">
-    <div v-for="product in products" :key="product.id">
+    <div v-for="product in products_ranking" :key="product.id">
       <div class="card">
         <cld-image
           v-if="product.image.url"
@@ -30,7 +30,7 @@ export default {
     };
   },
   props: {
-    products: {
+    products_ranking: {
       type: Array,
       default: () => "",
     },
@@ -45,19 +45,6 @@ export default {
   },
   created() {
     this.sort_by_like_count;
-  },
-  computed: {
-    sort_by_like_count() {
-      this.products.sort(function (a, b) {
-        if (a.likes.count > b.likes.count) {
-          console.log(a.likes.count);
-          return -1;
-        } else {
-          console.log(a.likes.count);
-          return 1;
-        }
-      });
-    },
   },
 };
 </script>

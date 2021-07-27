@@ -2,7 +2,8 @@
 <main>
   <h3 class="title text-center my-5">作品一覧</h3>
   <div class="container">
-    <div id='vue-template'></div>
+    <div id='vue-template'>
+    </div>
   </div>
 </main>
 
@@ -19,3 +20,11 @@
 <% end %>
 
 <!--likeが多い順に並び替えたproductsをvueに渡す-->
+
+<%= content_tag :div,
+   id: "productsRanking",
+   data: {
+    products:@products_ranks
+   }.to_json do %>
+<% end %>
+
