@@ -4,23 +4,11 @@ RSpec.describe Product, type: :model do
   subject!(:product){create(:product)}
   let(:user) { product.user }
 
-  context 'Productが削除された場合' do
-    it '関連する中間テーブルも削除されること' do
-      expect{product.destroy}.to change { ProductTechnique.count }.by(-1)
-    end
-  end
-
   context '名前が空である場合' do
     it 'productが登録されないこと' do
       product.name = ''
       product.valid?
       expect(product.errors[:name]).to include("を入力してください。")
-    end
-  end
-
-  context '名前が入力されている場合' do
-    it 'productの登録に成功すること' do
-      expect(product).to be_valid
     end
   end
 

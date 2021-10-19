@@ -1,21 +1,24 @@
 <template>
-  <div class="products-list">
-    <div v-for="product in products" :key="product.id">
-      <div class="card">
-        <cld-image
-          v-if="product.image.url"
-          class="product-image"
-          :publicId="`${product.image.url}`"
-        >
-        </cld-image>
-        <cld-image v-else class="product-image" publicId="Noimage.png">
-        </cld-image>
-        <div class="card-body text-center">
-          <h5 class="card-title">{{ product.name }}</h5>
-          <p class="card-text text-left">
-            {{ product.description | truncate }}
-          </p>
-          <a :href="`/products/${product.id}`"> この作品を見る </a>
+  <div>
+    <input type="text" v-model="keyword" />
+    <div class="products-list">
+      <div v-for="product in filteredProducts" :key="product.id">
+        <div class="card">
+          <cld-image
+            v-if="product.image.url"
+            class="product-image"
+            :publicId="`${product.image.url}`"
+          >
+          </cld-image>
+          <cld-image v-else class="product-image" publicId="Noimage.png">
+          </cld-image>
+          <div class="card-body text-center">
+            <h5 class="card-title">{{ product.name }}</h5>
+            <p class="card-text text-left">
+              {{ product.description | truncate }}
+            </p>
+            <a :href="`/products/${product.id}`"> この作品を見る </a>
+          </div>
         </div>
       </div>
     </div>
@@ -26,7 +29,7 @@
 export default {
   data() {
     return {
-      productImage: true,
+      keyword: "",
     };
   },
   props: {
@@ -43,18 +46,15 @@ export default {
       return value.substring(0, length) + "...";
     },
   },
-  created() {
-    this.sort_by_created_at;
-  },
   computed: {
-    sort_by_created_at() {
-      this.products.sort(function (a, b) {
-        if (a.id > b.id) {
-          return -1;
-        } else {
-          return 1;
+    filteredProducts() {
+      let users = [];
+      this.products.forEach(function (product) {
+        if (product.indexOf(this.keyword) > -1) {
+          users.push(product);
         }
       });
+      return users
     },
   },
 };

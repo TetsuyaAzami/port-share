@@ -6,12 +6,6 @@
     <router-link to="products_favor" active-class="link--active" exact
       >人気の投稿</router-link
     >
-    <router-link
-      to="products_search_by_language"
-      active-class="link--active"
-      exact
-      >言語で調べる</router-link
-    >
   </div>
 </template>
 
