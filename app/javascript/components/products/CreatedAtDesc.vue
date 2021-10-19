@@ -24,11 +24,6 @@
 
 <script>
 export default {
-  data() {
-    return {
-      productImage: true,
-    };
-  },
   props: {
     products: {
       type: Array,
