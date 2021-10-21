@@ -6,11 +6,10 @@ Port-shareは、ポートフォリオ投稿・閲覧サイトです。
 
 ## Port-shareの使い方
 ### 作品の一覧画面で他の人のポートフォリオを見てみましょう！
-![作品一覧](https://github.com/TetsuyaAzami/port-share/images/localhost_3000_products.png)
-
+![作品一覧](https://github.com/TetsuyaAzami/port-share/blob/images/localhost_3000_products.png)
 
 ### 必要情報を入力して投稿してください
-![投稿画面](https://github.com/TetsuyaAzami/port-share/images/localhost_3000_products_new.png)
+![投稿画面](https://github.com/TetsuyaAzami/port-share/blob/images/localhost_3000_products_new.png)
  
 ## 必要なgem等
  
