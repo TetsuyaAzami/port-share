@@ -17,13 +17,13 @@
 
   <div class="field">
     <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, class:"form-control",required: true %>
+    <%= f.text_field :name, autofocus: true, autocomplete: "off", class:"form-control",required: true %>
   </div>
 
   <%
     whether_params_have_product = params[:product].present? ? params[:product][:techniques] : @product.technique_ids
   %>
-  
+
   <div class="field check-boxes">
     <%= f.label :techniques %><br />
     <%= f.collection_check_boxes(:techniques,@technique,:id,:technique,include_hidden: false,checked: whether_params_have_product,required: true) do |b|%>
@@ -41,7 +41,7 @@
 
   <div class="field">
     <%= f.label :url %><br />
-    <%= f.text_field :url, class:"form-control" ,required: true %>
+    <%= f.text_field :url, class:"form-control",autocomplete: "off" ,required: true %>
     <label>
   </div>
 
