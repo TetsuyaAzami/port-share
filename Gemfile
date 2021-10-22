@@ -55,6 +55,11 @@ group :development do
   gem 'rspec-rails', '~> 3.7.2'
   gem 'hirb'
   gem 'hirb-unicode'
+  gem "capistrano", "~> 3.16", require: false
+  gem "capistrano-rails", "~> 1.6", require: false
+  gem 'capistrano3-puma', "~> 5.0", require: false
+  gem 'capistrano-rbenv', '~> 2.2', require: false
+  gem 'capistrano-safe-deploy-to'
 end
 
 group :test do
@@ -63,10 +68,6 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
-end
-
-group :production do
-  gem 'pg'
 end
 
 

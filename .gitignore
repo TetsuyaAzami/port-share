@@ -39,3 +39,8 @@ yarn-debug.log*
 .pryrc
 .rspec
 /vue.config.js
+
+# 他機密情報を含むもの
+Capfile
+config/deploy.rb
+config/deploy/production.rb
