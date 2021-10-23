@@ -31,6 +31,8 @@ gem 'jbuilder', '~> 2.7'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
+# Use mysql as the database for Active Record
+gem 'mysql2', '>= 0.4.4'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -44,8 +46,6 @@ group :development, :test do
 end
 
 group :development do
-  # Use mysql as the database for Active Record
-  gem 'mysql2', '>= 0.4.4'
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '~> 3.2'
@@ -56,9 +56,11 @@ group :development do
   gem 'hirb'
   gem 'hirb-unicode'
   gem "capistrano", "~> 3.16", require: false
+  gem 'capistrano-bundler'
   gem "capistrano-rails", "~> 1.6", require: false
   gem 'capistrano3-puma', "~> 5.0", require: false
   gem 'capistrano-rbenv', '~> 2.2', require: false
+  gem 'capistrano-yarn'
   gem 'capistrano-safe-deploy-to'
 end
 
@@ -69,6 +71,7 @@ group :test do
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
 end
+
 
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
