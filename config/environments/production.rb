@@ -106,7 +106,7 @@ Rails.application.configure do
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
   config.hosts << 'port-share.herokuapp.com'
   config.hosts << "port-share.work"
-  config.hosts << ENV[ELB]
-  config.hosts << ENV[SERVER_IP_A]
-  config.hosts << ENV[SERVER_IP_C]
+  config.hosts << ENV['ELB']
+  config.hosts << ENV['SERVER_IP_A']
+  config.hosts << ENV['SERVER_IP_C']
 end
