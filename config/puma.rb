@@ -34,5 +34,14 @@ pidfile ENV.fetch("PIDFILE") { "tmp/pids/server.pid" }
 #
 # preload_app!
 
+
 # Allow puma to be restarted by `rails restart` command.
 plugin :tmp_restart
+
+if "production" == ENV.fetch("RAILS_ENV") { "development" }
+  ssl_bind '0.0.0.0', '9292', {
+    key: "/usr/local/etc/ssl/port-share.key",
+    cert: "/usr/local/etc/ssl/port-share.crt;",
+    verify_mode: "none"
+  }
+end
