@@ -1,8 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Technique, type: :model do
-    it "Techniqueテーブルが不変であること" do
-      expect(Technique.pluck(:technique)).to eq(%W[
+  it 'Techniqueテーブルが不変であること' do
+    expect(described_class.all.pluck(:technique)).to eq(
+      %w[
         HTML
         CSS
         PHP
@@ -18,6 +19,7 @@ RSpec.describe Technique, type: :model do
         Unity
         React
         Vue.js
-        ])
-      end
+      ]
+    )
+  end
 end

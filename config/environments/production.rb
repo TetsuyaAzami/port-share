@@ -76,7 +76,7 @@ Rails.application.configure do
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
 
   if ENV['RAILS_LOG_TO_STDOUT'].present?
-    logger = ActiveSupport::Logger.new(STDOUT)
+    logger = ActiveSupport::Logger.new($stdout)
     logger.formatter = config.log_formatter
     config.logger = ActiveSupport::TaggedLogging.new(logger)
   end
@@ -105,7 +105,7 @@ Rails.application.configure do
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
   config.hosts << 'port-share.herokuapp.com'
-  config.hosts << "port-share.work"
+  config.hosts << 'port-share.work'
   config.hosts << ENV['ELB']
   config.hosts << ENV['SERVER_IP_A']
   config.hosts << ENV['SERVER_IP_C']

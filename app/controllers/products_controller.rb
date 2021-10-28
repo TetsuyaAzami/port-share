@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!
-  before_action :check_whether_correct_user,{only:[:edit,:update,:destroy]}
-  before_action :set_product,only: %i[show edit update destroy]
+  before_action :check_whether_correct_user, { only: %i[edit update destroy] }
+  before_action :set_product, only: %i[show edit update destroy]
 
   def index
     @products = Product.all
@@ -22,8 +22,7 @@ class ProductsController < ApplicationController
     end
   end
 
-  def show
-  end
+  def show; end
 
   def edit
     @technique = Technique.all
@@ -43,22 +42,19 @@ class ProductsController < ApplicationController
     redirect_to products_path, notice: '削除しました'
   end
 
-
-
   private
 
-  def check_whether_correct_user #他ユーザーのproductsを編集・削除できないように制限（管理者ユーザーは除く）
+  # 他ユーザーのproductsを編集・削除できないように制限（管理者ユーザーは除く）
+  def check_whether_correct_user
     @product = Product.find(params[:id])
-    unless current_user.admin == true || current_user.id == @product.user_id
-    redirect_to product_path(@product),notice: "編集・削除権限がありません"
-    end
+    return true if current_user.admin == true || current_user.id == @product.user_id
 
+    redirect_to product_path(@product), notice: '編集・削除権限がありません'
   end
 
   def set_product
     @product = Product.find(params[:id])
   end
-
 
   def create_new_product
     @product = current_user.products.new(product_params)
@@ -69,19 +65,19 @@ class ProductsController < ApplicationController
   end
 
   def update_product
-      @product.update(product_params)
-      @product.product_techniques.delete_all
-      used_technique_ids[:techniques].each do |used_technique_id|
-        @product.product_techniques.new(technique_id: used_technique_id)
-      end
-      @product.save
+    @product.update(product_params)
+    @product.product_techniques.delete_all
+    used_technique_ids[:techniques].each do |used_technique_id|
+      @product.product_techniques.new(technique_id: used_technique_id)
     end
+    @product.save
+  end
 end
 
 def product_params
   params
-  .require(:product)
-  .permit(:name,:image, :image_cache, :remove_image, :url, :description)
+    .require(:product)
+    .permit(:name, :image, :image_cache, :remove_image, :url, :description)
 end
 
 def used_technique_ids

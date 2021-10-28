@@ -35,7 +35,7 @@ RSpec.describe User, type: :model do
 
   context 'nameが51文字以上の場合' do
     it '保存に失敗すること' do
-      user.name = "a" * 51
+      user.name = 'a' * 51
       user.save
       expect(user.errors[:name]).to include('は50文字以内です。')
     end
@@ -43,7 +43,7 @@ RSpec.describe User, type: :model do
 
   context 'profileが251文字以上の場合' do
     it '保存に失敗すること' do
-      user.profile = "a" * 251
+      user.profile = 'a' * 251
       user.save
       expect(user.errors[:profile]).to include('は250文字以内にしてください。')
     end
@@ -52,7 +52,7 @@ RSpec.describe User, type: :model do
   context 'userが削除された場合' do
     it '削除されたuserのproductが削除されること' do
       product = create(:product)
-      expect { product.user.destroy }.to change { Product.count }.by(-1)
+      expect { product.user.destroy }.to change(Product, :count).by(-1)
     end
   end
 end
