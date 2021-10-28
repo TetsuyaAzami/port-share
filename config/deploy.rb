@@ -45,12 +45,12 @@ set :rbenv_prefix,
     "RBENV_ROOT=#{fetch(:rbenv_path)} #{fetch(:rbenv_path)}/bin/rbenv exec"
 set :puma_daemonize, false
 
-namespace :"webpack" do
+namespace :webpack do
   desc 'bin/webpack'
   task :build do
     on roles(:web) do
-      within "#{current_path}" do
-        execute :'bundle', 'exec', 'bin/webpack'
+      within current_path.to_s do
+        execute :bundle, 'exec', 'bin/webpack'
       end
     end
   end

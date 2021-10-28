@@ -5,11 +5,11 @@ ruby '2.7.3'
 
 gem 'carrierwave'
 gem 'cloudinary'
-gem 'mini_magick'
 gem 'devise'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
 gem 'dotenv-rails'
+gem 'mini_magick'
 gem 'rename'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -36,32 +36,33 @@ gem 'mysql2', '>= 0.4.4'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'pry-rails'
-  gem 'pry-doc'
-  gem 'pry-stack_explorer'
-  gem 'pry-byebug'
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot_rails'
   gem 'faker'
+  gem 'pry-byebug'
+  gem 'pry-doc'
+  gem 'pry-rails'
+  gem 'pry-stack_explorer'
 end
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
   gem 'listen', '~> 3.2'
+  gem 'web-console', '>= 3.3.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem 'capistrano', '~> 3.16', require: false
+  gem 'capistrano3-puma', '~> 5.0', require: false
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails', '~> 1.6', require: false
+  gem 'capistrano-rbenv', '~> 2.2', require: false
+  gem 'capistrano-safe-deploy-to'
+  gem 'capistrano-yarn'
+  gem 'rspec-rails', '~> 3.7.2'
+  gem 'rubocop', require: false
+  gem 'rubocop-rails', require: false
+  gem 'rubocop-rspec'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'rspec-rails', '~> 3.7.2'
-  gem 'hirb'
-  gem 'hirb-unicode'
-  gem "capistrano", "~> 3.16", require: false
-  gem 'capistrano-bundler'
-  gem "capistrano-rails", "~> 1.6", require: false
-  gem 'capistrano3-puma', "~> 5.0", require: false
-  gem 'capistrano-rbenv', '~> 2.2', require: false
-  gem 'capistrano-yarn'
-  gem 'capistrano-safe-deploy-to'
 end
 
 group :test do
@@ -72,7 +73,5 @@ group :test do
   gem 'webdrivers'
 end
 
-
-
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
