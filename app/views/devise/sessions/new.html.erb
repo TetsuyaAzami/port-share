@@ -5,17 +5,17 @@
 
   <div class="field">
     <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, class:"form-control",required: true %>
+    <%= f.text_field :name, autofocus: true, class:"form-control",required: true,value: 'guest-user' %>
   </div>
 
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autocomplete: "email", class:"form-control" %>
+    <%= f.email_field :email, autocomplete: "email", class:"form-control", value: 'guest-user@com' %>
   </div>
 
   <div class="field">
     <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password", class:"form-control"  %>
+    <%= f.password_field :password, autocomplete: "current-password", class:"form-control",value: 'password'  %>
   </div>
 
   <% if devise_mapping.rememberable? %>
@@ -29,8 +29,5 @@
     <%= f.submit "Log in", class:"form-control"  %>
   </div>
   <% end %>
-  <div class="text-center mt-3">
-    <%= render "devise/shared/links" %>
-  </div>
 
 </div>

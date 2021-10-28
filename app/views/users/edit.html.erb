@@ -27,17 +27,22 @@
 
   <div class="field">
     <%= f.label :profile %><br />
-    <%= f.text_area :profile, class:"form-control",style: "width:100%;min-height:150px;"%>
+    <%= f.text_area :profile, class:"form-control",value: @user.profile,style: "width:100%;min-height:150px;"%>
   </div>
 
   <div class="actions">
-    <%= f.submit "編集を確定する", class:"form-control submit-button"  %>
+    <%= f.submit "編集を確定する", class:"form-control submit-button", disabled: true  %>
   </div>
   <% end %>
 
 
   <div class="actions destroy-user text-center">
+  <% if current_user.name == 'guest-user'%>
+  <p class="my-4 text-center danger">ユーザを削除する</p>
+  <% else %>
     <%= link_to  "ユーザーを削除する", user_path(@user),class: "my-5 text-center danger",method: :delete,data: {confirm: "削除するユーザーの投稿した作品も全て削除されます。\n本当にユーザー（#{@user.name}）を削除しますか？"} %>
+
+  <% end %>
   </div>
 
 </div>
