@@ -33,6 +33,15 @@ require 'open-uri'
     password: 'password',
     admin: true
   )
+  #guest-user(採用担当者様用)
+  User.create!(
+    id: 2,
+    name: 'guest-user',
+    email: 'guest-user@com',
+    password: 'password',
+    profile: "採用担当者様用のアカウントです。\n編集の確定、ユーザの削除はできないようになっています。",
+    admin: false
+  )
 
   #初期products
   seed_techniques = %W[React Vue.js Unity Python Rails Flask Laravel]
