@@ -54,6 +54,7 @@ ja:
               invalid: "使用技術を適切に選んでください"
             url:
               invalid: "はhttp、またはhttpsから始まるURLを指定してください。"
+              too_long: "は2000文字以内にしてください"
             description:
               too_long: "は250文字以内にしてください。"
       messages:

@@ -1,13 +1,18 @@
 class Product < ApplicationRecord
   validates :name, presence: true, length: { maximum: 50 }
-  validates :url, format: /\A#{URI::DEFAULT_PARSER.make_regexp(%w[http https])}\z/
+  validates :url,
+            format: /\A#{URI::DEFAULT_PARSER.make_regexp(%w[http https])}\z/,
+            presence: true,
+            length: {
+              maximum: 2000
+            } # IEのURL最大長までに制限
   validates :description, length: { maximum: 250 }
   mount_uploader :image, ImageUploader
 
   belongs_to :user
   has_many :product_techniques, dependent: :destroy
   has_many :techniques, through: :product_techniques
-  has_many :likes
+  has_many :likes, dependent: :destroy
 
   def self.ranking
     includes(:likes).sort { |a, b| b.likes.count <=> a.likes.count }
