@@ -1,6 +1,6 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-require 'open-uri'
+require 'open-uri' #cloudinaryの画像をhttpでダウンロードするために使用
   include ApplicationHelper
   User.destroy_all
   Technique.destroy_all
@@ -50,26 +50,25 @@ require 'open-uri'
     random_technique = seed_techniques.shuffle[0]
     product =
       Product.create(
-        user_id: 1,
+        user_id: 2,
         name: "#{random_technique} App",
-        description: seeds_description(random_technique),
-        url: "https://www.google.com/"
+        description: seeds_description(random_technique),# seeds_desctiptionはApplicationHelperで定義,
+        url: "https://www.google.com/" #サンプルとしてgoogleのURLを挿入
       )
 
+# remote_image_url: Carrierwaveのformを使わずに画像保存するメソッド
       product.remote_image_url = seeds_image(random_technique)
       product.save
-
-    #中間テーブルの作成
 
     #technique_idの割当
     used_techniques = %W[HTML CSS Bootstrap #{random_technique}]
     used_technique_ids = []
 
     used_techniques.each do |used_technique|
-      used_technique_id = techniques.index(used_technique).to_i + 1
+      used_technique_id = techniques.index(used_technique).to_i + 1 # 作品に使用した言語の、Techniqueテーブルのidを取得
       used_technique_ids.push(used_technique_id)
     end
-
+# 中間テーブルProductTechniqueを作成
     used_technique_ids.each do |used_technique_id|
       product.product_techniques.create(technique_id: used_technique_id)
     end

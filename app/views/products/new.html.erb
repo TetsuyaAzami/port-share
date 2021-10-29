@@ -20,22 +20,24 @@
     <%= f.text_field :name, autofocus: true, autocomplete: "off", class:"form-control",required: true %>
   </div>
 
+ <!--投稿に失敗した際にチェックしたtechniqueを保持する-->
   <%
     whether_params_have_product = params[:product].present? ? params[:product][:techniques] : @product.technique_ids
   %>
 
   <div class="field check-boxes">
     <%= f.label :techniques %><br />
+    <!--collection_check_boxes(product_techniques、モデル名、techniqueテーブルのid,techniqueテーブルのtechniqueカラム)-->
     <%= f.collection_check_boxes(:techniques,@technique,:id,:technique,include_hidden: false,checked: whether_params_have_product,required: true) do |b|%>
+    <!--チェックボックス同士の間を均等にするためにclassを付与-->
     <%= b.label {b.check_box(class: "technique") + b.text }%>
     <% end %>
   </div>
-
   <div class="field">
     <%= f.label :image %><br />
-    <%= image_tag(@product.image_url) if @product.image?%>
+    <%= image_tag(@product.image_url) if @product.image?%> <!--image_urlはcloudinaryから画像のパスを取得するメソッド-->
     <%= f.file_field :image, class:"form-control" %>
-    <%= f.hidden_field :image_cache %>
+    <%= f.hidden_field :image_cache %> <!--投稿に失敗した際に、投稿したimageがある場合は表示-->
     <label>
   </div>
 
