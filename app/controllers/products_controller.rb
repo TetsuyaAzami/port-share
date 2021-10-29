@@ -48,7 +48,6 @@ class ProductsController < ApplicationController
   def check_whether_correct_user
     @product = Product.find(params[:id])
     return true if current_user.admin == true || current_user.id == @product.user_id
-
     redirect_to product_path(@product), notice: '編集・削除権限がありません'
   end
 
@@ -58,6 +57,7 @@ class ProductsController < ApplicationController
 
   def create_new_product
     @product = current_user.products.new(product_params)
+    # チェックが入っているtechniquesを中間テーブルに保存
     used_technique_ids[:techniques].each do |used_technique_id|
       @product.product_techniques.build(technique_id: used_technique_id)
     end
@@ -66,7 +66,9 @@ class ProductsController < ApplicationController
 
   def update_product
     @product.update(product_params)
+    # 一度中間テーブルを削除
     @product.product_techniques.delete_all
+    # 中間テーブルを再作成
     used_technique_ids[:techniques].each do |used_technique_id|
       @product.product_techniques.new(technique_id: used_technique_id)
     end
@@ -80,6 +82,7 @@ def product_params
     .permit(:name, :image, :image_cache, :remove_image, :url, :description)
 end
 
+#  チェックの入ったtechnique
 def used_technique_ids
   params.require(:product).permit(techniques: [])
 end
