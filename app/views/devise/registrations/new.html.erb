@@ -1,18 +1,19 @@
 <% provide(:title, "Sign up") %>
 <div class="container">
-<h2 class="signup text-center mt-5 mb-3">Sign up</h2>
+  <h2 class="signup text-center mt-5 mb-3">Sign up</h2>
+  <h4 class="danger my-4">注意:<br>採用担当者様用のユーザを作成してありますので、上記ナビゲーションバーの <i class="fas fa-sign-in-alt"></i>ログイン からお進みください</h4>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-   <div class="field">
+  <div class="field">
     <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, class: "form-control",required: true %>
+    <%= f.text_field :name, autofocus: true, class: "form-control",required: true,disabled: true %>
   </div>
 
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autocomplete: "email", class: "form-control" %>
+    <%= f.email_field :email, autocomplete: "email", class: "form-control",disabled: true %>
   </div>
 
   <div class="field">
@@ -20,17 +21,17 @@
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %>文字以上)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password", class: "form-control"  %>
+    <%= f.password_field :password, autocomplete: "new-password", class: "form-control",disabled: true  %>
   </div>
 
   <div class="field">
     <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control"  %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control",disabled: true  %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up", class: "form-control mt-4" %>
+    <%= f.submit "Sign up", class: "form-control mt-4",disabled: true %>
   </div>
-<% end %>
+  <% end %>
 
 </div>
