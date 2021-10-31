@@ -5,6 +5,9 @@
   grid-template-columns: repeat(2, 1fr);
   gap: 16px;
 }
+.card-body{
+  min-height: 164px;
+}
 
 .product-image {
   width: 100%;
