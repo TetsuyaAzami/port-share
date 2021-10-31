@@ -39,7 +39,7 @@ User.create!(
   id: 2,
   name: 'guest-user',
   email: 'guest-user@com',
-  password: 'password',
+  password: 'guestuserpass',
   profile:
     "採用担当者様用のアカウントです。\n編集の確定、ユーザの削除はできないようになっています。",
   admin: false
