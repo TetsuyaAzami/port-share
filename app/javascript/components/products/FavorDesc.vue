@@ -29,6 +29,10 @@ export default {
       type: Array,
       default: () => "",
     },
+    products_likescounts: {
+      type: Object,
+      default: () => "",
+    },
   },
   filters: {
     truncate(value, length = 15) {
