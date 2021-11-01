@@ -22,6 +22,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const props = JSON.parse(node.getAttribute("data"));
   const nodeRanking = document.getElementById("productsRanking");
   const propsRanking = JSON.parse(nodeRanking.getAttribute("data"));
+  const nodeLikesCounts = document.getElementById("likesCounts");
+  const propsLikesCounts = JSON.parse(nodeLikesCounts.getAttribute("data"));
   const app = new Vue({
     el: "#vue-template",
     router,
@@ -29,9 +31,10 @@ document.addEventListener("DOMContentLoaded", () => {
       h(App, {
         props: {
           products: props.products,
-          products_ranking: propsRanking.products
+          products_ranking: propsRanking.products,
+          products_likescounts: propsLikesCounts.likes_counts
         },
-      })
+      }),
   });
 });
 

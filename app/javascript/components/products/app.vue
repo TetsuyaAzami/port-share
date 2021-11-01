@@ -4,6 +4,7 @@
     <router-view
       :products="products"
       :products_ranking="products_ranking"
+      :products_likescounts="products_likescounts"
     ></router-view>
   </div>
 </template>
@@ -26,6 +27,10 @@ export default {
     },
     products_ranking: {
       type: Array,
+      default: () => "",
+    },
+    products_likescounts: {
+      type: Object,
       default: () => "",
     },
   },
