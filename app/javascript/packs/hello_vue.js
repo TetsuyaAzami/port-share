@@ -12,7 +12,7 @@ import router from "../router/router";
 import Cloudinary from "cloudinary-vue";
 Vue.use(Cloudinary, {
   configuration: {
-    cloudName: "hqyupfdfe",
+    cloudName: process.env.CLOUDINARY_CLOUD_NAME,
     secure: true,
   },
 });
@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
       h(App, {
         props: {
           products: props.products,
-          products_ranking:propsRanking.products
+          products_ranking: propsRanking.products
         },
       })
   });

@@ -17,4 +17,25 @@ class Product < ApplicationRecord
   def self.ranking
     includes(:likes).sort { |a, b| b.likes.count <=> a.likes.count }
   end
+  def self.likes_counts
+    # Productのid番目が何個のlikeを持っているか知りたい
+    # 空のハッシュを定義
+    likes_counts = {}
+
+    # likes_counts[:product.id] = product.likes.count
+    products = self.includes(:likes)
+    products.each do |product|
+      # binding.pry
+      likes_counts.store(product.id, product.likes.count)
+    end
+    likes_counts
+
+    # # いいねの数の配列
+    # likes_counts = []
+    # # N+1問題対策
+    # products = self.includes(:likes)
+    # products.each { |product| likes_counts.push(product.likes.count) }
+    # # binding.pry
+    # likes_counts
+  end
 end

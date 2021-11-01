@@ -15,15 +15,21 @@
 <%= content_tag :div,
    id: "productsIndex",
    data: {
-    products:@products
+    products: @products
    }.to_json do %>
 <% end %>
 
 <!--likeが多い順に並び替えたproductsをvueに渡す-->
-
 <%= content_tag :div,
    id: "productsRanking",
    data: {
-    products:@products_ranks
+    products: @products_ranks
+   }.to_json do %>
+<% end %>
+<!--likeの数をvueに渡す-->
+<%= content_tag :div,
+   id: "likes_count",
+   data: {
+    likes_counts: @likes
    }.to_json do %>
 <% end %>
