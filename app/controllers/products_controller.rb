@@ -48,9 +48,7 @@ class ProductsController < ApplicationController
   # 他ユーザーのproductsを編集・削除できないように制限（管理者ユーザーは除く）
   def check_whether_correct_user
     @product = Product.find(params[:id])
-    if current_user.admin == true || current_user.id == @product.user_id
-      return true
-    end
+    return true if current_user.admin == true || current_user.id == @product.user_id
 
     redirect_to product_path(@product), notice: '編集・削除権限がありません'
   end
