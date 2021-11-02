@@ -11,7 +11,12 @@
         <cld-image v-else class="product-image" publicId="Noimage.png">
         </cld-image>
         <div class="card-body text-center">
-          <h5 class="card-title">{{ product.name }}</h5>
+          <h5 class="card-title">
+            {{ product.name }}<i class="heart fas fa-heart"></i
+            ><span class="likescounts">{{
+              products_likescounts[product.id]
+            }}</span>
+          </h5>
           <p class="card-text text-left">
             {{ product.description | truncate }}
           </p>
@@ -47,3 +52,16 @@ export default {
   },
 };
 </script>
+<style>
+.heart {
+  font-size: 1rem;
+  margin-left: 10px;
+  color: red;
+}
+.likescounts {
+  color: #01091c;
+  padding-left: 5px;
+  font-size: 1rem;
+  font-weight: normal;
+}
+</style>
