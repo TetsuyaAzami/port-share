@@ -17,12 +17,13 @@ class Product < ApplicationRecord
   def self.ranking
     includes(:likes).sort { |a, b| b.likes.count <=> a.likes.count }
   end
+
   def self.likes_counts
     # Productのid番目が何個のlikeを持っているか知りたい
     likes_counts = {}
     # N+1問題対策
-    products = self.includes(:likes)
-    #{productのid,productに対するいいねの個数}
+    products = includes(:likes)
+    # {productのid,productに対するいいねの個数}
     products.each do |product|
       likes_counts.store(product.id, product.likes.count)
     end
