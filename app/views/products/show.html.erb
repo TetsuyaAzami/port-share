@@ -7,11 +7,27 @@
     <% else %>
     <%= cl_image_tag "Noimage.png",class:"product-image" %>
     <% end %>
+    <%# card-body%>
     <div class="card-body text-center">
       <h3 class="card-title mb-5"><%=@product.name%></h3>
+      <p class="card-text text-center">使用技術</p>
+      <div class="d-flex mx-auto mb-3" style="width:200px;">
+      <%#countを定義%>
+          <%count = 0%>
+          <%#最後の要素の後ろにスラッシュを入れないように条件分岐%>
+        <% @product.techniques.each do |technique|%>
+        <p>
+          <% if count < @product.techniques.length - 1 %>
+          <%=technique.technique + "/"%>
+          <% else %>
+          <%=technique.technique %>
+          <% end %>
+          <% count += 1%>
+        </p>
+        <% end %>
+      </div>
       <p class="card-text text-center"><%= @product.description%> </p>
       <div class="product-actions">
-
         <div id="render_like" class="mb-1">
           <%= render "likes/like",product:@product %>
         </div>
