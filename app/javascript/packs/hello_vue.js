@@ -10,9 +10,10 @@ import Vue from "vue";
 import App from "../components/products/app.vue";
 import router from "../router/router";
 import Cloudinary from "cloudinary-vue";
+Vue.config.productionTip = false;
 Vue.use(Cloudinary, {
   configuration: {
-    cloudName: process.env.CLOUDINARY_CLOUD_NAME,
+    cloudName: hqyupfdfe,
     secure: true,
   },
 });
