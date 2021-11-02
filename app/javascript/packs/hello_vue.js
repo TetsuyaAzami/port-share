@@ -13,7 +13,7 @@ import Cloudinary from "cloudinary-vue";
 Vue.config.productionTip = false;
 Vue.use(Cloudinary, {
   configuration: {
-    cloudName: hqyupfdfe,
+    cloudName: "hqyupfdfe",
     secure: true,
   },
 });
