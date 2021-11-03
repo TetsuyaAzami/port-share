@@ -36,9 +36,32 @@ User.create!(
 
 #guest-user(採用担当者様用)
 User.create!(
-  id: 2,
   name: 'guest-user',
   email: 'guest-user@com',
+  password: 'guestuserpass',
+  profile:
+    "採用担当者様用のアカウントです。\n編集の確定、ユーザの削除はできないようになっています。",
+  admin: false
+)
+User.create!(
+  name: 'guest-user1',
+  email: 'guest-user1@com',
+  password: 'guestuserpass',
+  profile:
+    "採用担当者様用のアカウントです。\n編集の確定、ユーザの削除はできないようになっています。",
+  admin: false
+)
+User.create!(
+  name: 'guest-user2',
+  email: 'guest-user2@com',
+  password: 'guestuserpass',
+  profile:
+    "採用担当者様用のアカウントです。\n編集の確定、ユーザの削除はできないようになっています。",
+  admin: false
+)
+User.create!(
+  name: 'guest-user3',
+  email: 'guest-user3@com',
   password: 'guestuserpass',
   profile:
     "採用担当者様用のアカウントです。\n編集の確定、ユーザの削除はできないようになっています。",
@@ -48,7 +71,7 @@ User.create!(
 #初期products
 seed_techniques = %W[React Vue.js Unity Python Rails Flask Laravel]
 
-10.times do |n|
+50.times do |n|
   random_technique = seed_techniques.shuffle[0]
   product =
     Product.create(
