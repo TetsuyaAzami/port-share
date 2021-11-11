@@ -8,7 +8,7 @@
     </h4>
 
     <div class="products-list">
-      <% @user.products.each do |user_product| %>
+      <% @products.each do |user_product| %>
       <div class="card">
         <% if user_product.image.present? %>
         <%= cl_image_tag(user_product.image,class:"product-image") %>
@@ -25,6 +25,7 @@
       <% end %>
 
     </div>
+      <%= paginate @products%>
   </div>
 </main>
 

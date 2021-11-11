@@ -11,6 +11,7 @@ gem 'devise-i18n-views'
 gem 'dotenv-rails'
 gem 'mini_magick'
 gem 'rename'
+gem 'kaminari'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.6'
