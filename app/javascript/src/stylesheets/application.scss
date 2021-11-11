@@ -164,14 +164,17 @@ footer {
   padding: 8px 12px;
   line-height: 1rem;
   border: none;
+  border-radius: 20px !important;
   color: $text-gray !important;
+  &:hover{
+    background-color: $hover-color;
+  }
 }
 
 /* 表示しているページ番号のデザイン */
 .pagination > .active > a {
   background: $main-color !important;
   color: $back-color !important;
-  border-radius: 20px;
   &:hover {
     color: $back-color !important;
   }
@@ -181,3 +184,8 @@ footer {
 .pagination > li > a:hover {
   border-radius: 20px;
 }
+
+/*kaminariライブラリデフォルトのcssでpage-itemの端っこが丸くならないのを修正*/
+// .page-item{
+//   border-radius: 20px;
+// }
