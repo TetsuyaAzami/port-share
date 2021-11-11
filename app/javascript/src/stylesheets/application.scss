@@ -137,15 +137,47 @@ footer {
 /* ===== いいね カラー ==========*/
 .heart-red {
   color: red;
-  text-decoration: none!important;
-  &:hover{
-    color: red!important;
+  text-decoration: none !important;
+  &:hover {
+    color: red !important;
   }
 }
 .heart-glay {
   color: $text-gray;
-  text-decoration: none!important;
+  text-decoration: none !important;
   &:hover {
-    color: rgb(239, 214, 217)!important;
+    color: rgb(239, 214, 217) !important;
   }
+}
+
+/* ========ペジネーション===========*/
+/*ペジネーション自体の位置 */
+.pagination {
+  margin: 50px auto;
+  width: fit-content;
+}
+
+/*ページネーション自体のデザイン*/
+.pagination > li > a {
+  display: block;
+  text-decoration: none;
+  padding: 8px 12px;
+  line-height: 1rem;
+  border: none;
+  color: $text-gray !important;
+}
+
+/* 表示しているページ番号のデザイン */
+.pagination > .active > a {
+  background: $main-color !important;
+  color: $back-color !important;
+  border-radius: 20px;
+  &:hover {
+    color: $back-color !important;
+  }
+}
+
+/*ホバー時のデザイン*/
+.pagination > li > a:hover {
+  border-radius: 20px;
 }

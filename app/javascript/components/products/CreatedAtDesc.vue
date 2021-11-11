@@ -22,8 +22,6 @@
       </div>
     </div>
     <paginate
-      class="mx-auto my-3"
-      style="width: fit-content"
       :page-count="getPageCount"
       :page-range="3"
       :click-handler="clickCallback"
@@ -90,3 +88,4 @@ export default {
   },
 };
 </script>
+

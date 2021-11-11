@@ -87,7 +87,7 @@ export default {
   },
 };
 </script>
-<style>
+<style scoped>
 .heart {
   font-size: 1rem;
   margin-left: 10px;
@@ -98,12 +98,5 @@ export default {
   padding-left: 5px;
   font-size: 1rem;
   font-weight: normal;
-}
-.pagination {
-  border: #66737a;
-  border-radius: 3px;
-}
-.page-item {
-  margin: 0 3px;
 }
 </style>

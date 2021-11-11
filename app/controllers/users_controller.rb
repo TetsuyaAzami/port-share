@@ -2,7 +2,9 @@ class UsersController < ApplicationController
   before_action :check_whether_correct_user, { only: %i[edit update destroy] }
   before_action :set_user, { only: %i[show edit update destroy] }
 
-  def show; end
+  def show
+    @products = @user.products.page(params[:page]).per(9)
+  end
 
   def edit; end
 
