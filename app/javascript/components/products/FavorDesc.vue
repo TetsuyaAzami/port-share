@@ -27,13 +27,17 @@
       </div>
     </div>
     <paginate
-      class="mx-auto my-3"
-      style="width: fit-content"
+      ref="pagination"
       :page-count="getPageCount"
-      :page-range="3"
+      :page-range="5"
+      :margin-pages="0"
       :click-handler="clickCallback"
-      :prev-text="'＜'"
-      :next-text="'＞'"
+      :first-last-button="true"
+      :first-button-text="firstButtonText"
+      :last-button-text="last"
+      :prev-text="prev"
+      :next-text="next"
+      :hide-prev-next="true"
       :container-class="'pagination'"
       :page-class="'page-item'"
     >
@@ -50,6 +54,11 @@ export default {
     return {
       currentPage: 1,
       perPage: 9,
+      totalPage: Math.ceil(this.products_ranking.length / 9),
+      prev: "<i class='fas fa-angle-left'></i>",
+      next: "<i class='fas fa-angle-right'></i>",
+      firstButtonText: "<i class='fas fa-angle-double-left'></i>",
+      last: "<i class='fas fa-angle-double-right'></i>",
     };
   },
   props: {
@@ -74,6 +83,41 @@ export default {
     clickCallback(pageNum) {
       this.currentPage = Number(pageNum);
     },
+    //1ページ目でペジネーションの最初に戻るボタン’<<’を表示しない
+    getFirstButtonText() {
+      const pagination = this.$refs.pagination.$el;
+      const firstChild = pagination.firstChild;
+      if (this.currentPage == 1) {
+        firstChild.style.display = "none";
+      } else {
+        firstChild.style.display = "block";
+        return (this.firstButtonText =
+          "<i class='fas fa-angle-double-left'></i>");
+      }
+    },
+    //最後のページでペジネーションの最後に飛ぶボタン’>>’を表示しない
+    getLastButtonText() {
+      const pagination = this.$refs.pagination.$el;
+      const lastChild = pagination.lastChild;
+      if (this.currentPage == this.totalPage) {
+        lastChild.style.display = "none";
+      } else {
+        lastChild.style.display = "block";
+        return (this.firstButtonText =
+          "<i class='fas fa-angle-double-left'></i>");
+      }
+    },
+  },
+  created() {
+    this.sort_by_created_at;
+  },
+  mounted() {
+    this.getFirstButtonText();
+    this.getLastButtonText();
+  },
+  updated() {
+    this.getFirstButtonText();
+    this.getLastButtonText();
   },
   computed: {
     getPaginateItems() {
