@@ -4,13 +4,16 @@
 # the maximum value specified for Puma. Default is set to 5 threads for minimum
 # and maximum; this matches the default thread size of Active Record.
 #
+if ENV.fetch('RAILS_ENV') { 'development' } == 'production'
+  bind "unix://#{Rails.root}/tmp/sockets/puma.sock"
+end
 max_threads_count = ENV.fetch('RAILS_MAX_THREADS', 5)
 min_threads_count = ENV.fetch('RAILS_MIN_THREADS') { max_threads_count }
 threads min_threads_count, max_threads_count
 
 # Specifies the `port` that Puma will listen on to receive requests; default is 3000.
 #
-port        ENV.fetch('PORT', 3000)
+port ENV.fetch('PORT', 3000)
 
 # Specifies the `environment` that Puma will run in.
 #
@@ -38,9 +41,11 @@ pidfile ENV.fetch('PIDFILE') { 'tmp/pids/server.pid' }
 plugin :tmp_restart
 
 if ENV.fetch('RAILS_ENV') { 'development' } == 'production'
-  ssl_bind '0.0.0.0', '9292', {
-    key: '/usr/local/etc/ssl/port-share.key',
-    cert: '/usr/local/etc/ssl/port-share.crt;',
-    verify_mode: 'none'
-  }
+  ssl_bind '0.0.0.0',
+           '9292',
+           {
+             key: '/usr/local/etc/ssl/port-share.key',
+             cert: '/usr/local/etc/ssl/port-share.crt;',
+             verify_mode: 'none',
+           }
 end
