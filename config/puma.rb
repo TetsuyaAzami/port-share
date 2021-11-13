@@ -5,7 +5,7 @@
 # and maximum; this matches the default thread size of Active Record.
 #
 if ENV.fetch('RAILS_ENV') { 'development' } == 'production'
-  bind "unix://#{Rails.root}/tmp/sockets/puma.sock"
+  bind 'unix://var/www/port-share/shared/tmp/sockets/puma.sock'
 end
 max_threads_count = ENV.fetch('RAILS_MAX_THREADS', 5)
 min_threads_count = ENV.fetch('RAILS_MIN_THREADS') { max_threads_count }
