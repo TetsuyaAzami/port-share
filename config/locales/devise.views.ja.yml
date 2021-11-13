@@ -57,6 +57,12 @@ ja:
               too_long: "は2000文字以内にしてください"
             description:
               too_long: "は250文字以内にしてください。"
+        like:
+          attributes:
+            user_id:
+              blank: "を入力してください"
+            product_id:
+              blank: "を入力してください"
       messages:
         record_invalid: "適当でない値が入力されています"
   errors:
