@@ -9,9 +9,9 @@ gem 'devise'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
 gem 'dotenv-rails'
+gem 'kaminari'
 gem 'mini_magick'
 gem 'rename'
-gem 'kaminari'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.6'
@@ -44,6 +44,7 @@ group :development, :test do
   gem 'pry-doc'
   gem 'pry-rails'
   gem 'pry-stack_explorer'
+  gem 'rspec-rails', '~> 3.7.2'
 end
 
 group :development do
@@ -58,7 +59,6 @@ group :development do
   gem 'capistrano-rbenv', '~> 2.2', require: false
   gem 'capistrano-safe-deploy-to'
   gem 'capistrano-yarn'
-  gem 'rspec-rails', '~> 3.7.2'
   gem 'rubocop', require: false
   gem 'rubocop-rails', require: false
   gem 'rubocop-rspec'
@@ -69,6 +69,7 @@ end
 group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
+  gem 'database_cleaner-active_record'
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
