@@ -61,8 +61,10 @@ ja:
           attributes:
             user_id:
               blank: "を入力してください"
+              taken: "は既にいいねをしています"
             product_id:
               blank: "を入力してください"
+              taken: "は既にいいねをしています"
       messages:
         record_invalid: "適当でない値が入力されています"
   errors:
