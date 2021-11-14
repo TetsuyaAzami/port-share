@@ -11,9 +11,8 @@ gem 'devise-i18n-views'
 gem 'dotenv-rails'
 gem 'kaminari'
 gem 'mini_magick'
-gem 'rename'
 gem 'nokogiri'
-
+gem 'rename'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.6'
 # Use Puma as the app server
@@ -45,7 +44,7 @@ group :development, :test do
   gem 'pry-doc'
   gem 'pry-rails'
   gem 'pry-stack_explorer'
-  gem 'rspec-rails', '~> 3.7.2'
+  gem 'rspec-rails'
 end
 
 group :development do
@@ -70,7 +69,7 @@ end
 group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
-   gem 'database_cleaner-active_record'
+  gem 'database_cleaner-active_record'
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'

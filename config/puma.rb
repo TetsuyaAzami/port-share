@@ -46,6 +46,6 @@ if ENV.fetch('RAILS_ENV') { 'development' } == 'production'
            {
              key: '/usr/local/etc/ssl/port-share.key',
              cert: '/usr/local/etc/ssl/port-share.crt;',
-             verify_mode: 'none',
+             verify_mode: 'none'
            }
 end

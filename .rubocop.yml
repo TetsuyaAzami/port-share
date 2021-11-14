@@ -60,3 +60,6 @@ Layout/LineLength:
 Rails/HasManyOrHasOneDependent:
   Exclude:
     - 'app/models/*'
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/*/*'

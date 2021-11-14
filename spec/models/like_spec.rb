@@ -26,16 +26,19 @@ RSpec.describe Like, type: :model do
         dupulicate_like =
           described_class.new(
             user_id: like.user_id,
-            product_id: like.product_id,
+            product_id: like.product_id
           )
         dupulicate_like.valid?
-        expect(dupulicate_like.errors[:user_id]).to include(
-          'は既にいいねをしています',
-        )
-        expect(dupulicate_like.errors[:product_id]).to include(
-          'は既にいいねをしています',
-        )
+        aggregate_failures '' do
+          expect(dupulicate_like.errors[:user_id]).to include(
+            'は既にいいねをしています'
+          )
+          expect(dupulicate_like.errors[:product_id]).to include(
+            'は既にいいねをしています'
+          )
+        end
       end
+
       it '異なるuserが同一のproductに対してlikeできること' do
         like.save
         user = create(:user)
