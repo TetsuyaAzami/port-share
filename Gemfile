@@ -13,7 +13,6 @@ gem 'kaminari'
 gem 'mini_magick'
 gem 'nokogiri'
 gem 'rename'
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.6'
 # Use Puma as the app server
@@ -45,7 +44,7 @@ group :development, :test do
   gem 'pry-doc'
   gem 'pry-rails'
   gem 'pry-stack_explorer'
-  gem 'rspec-rails', '~> 3.7.2'
+  gem 'rspec-rails'
 end
 
 group :development do
