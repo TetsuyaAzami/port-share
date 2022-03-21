@@ -1,6 +1,9 @@
 {
   "name": "port_share_webpacker",
   "private": true,
+  "engines": {
+    "node": "14.x"
+  },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.3",
     "@rails/actioncable": "^6.0.0",
